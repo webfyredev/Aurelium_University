@@ -1,5 +1,9 @@
-import { FaGlobeAmericas, FaUserGraduate, FaBriefcase, FaUsers, FaLightbulb, FaChartLine, FaFlask, FaHandshake, FaSmileBeam} from "react-icons/fa"
-import { MdArchitecture } from "react-icons/md";
+import { FaGlobeAmericas, FaUserGraduate,FaChalkboardTeacher, FaBriefcase, FaUsers, FaLightbulb, FaChartLine, FaFlask, FaHandshake, FaSmileBeam, FaBookReader, FaHome, FaHospitalUser, FaGraduationCap, FaBookOpen, FaAward} from "react-icons/fa"
+import { MdArchitecture} from "react-icons/md";
+import { RiComputerLine } from "react-icons/ri";
+import { BiBrain } from "react-icons/bi";
+import { FiCpu} from "react-icons/fi";
+import React from "react";
 interface mission {
     id : number,
     icon : React.ElementType,
@@ -42,23 +46,130 @@ interface upcoming {
     time : string,
     location : string
 }
+interface facs {image : string, icon : React.ElementType, title : string, description : string}
+interface herosec {icon : React.ElementType, count: number, sign : string, title : string}
+export const hero:herosec[] = [
+    {
+        icon : FaUsers,
+        count : 15000,
+        sign : '+',
+        title : 'Students'
+    },
+    {
+        icon : FaChalkboardTeacher,
+        count : 200,
+        sign : '+',
+        title : 'Faculty Members'
+    },
+    
+    {
+        icon : FaBookOpen,
+        count : 50,
+        sign : '+',
+        title : 'Programs'
+    },
+    {
+        icon : FaUserGraduate,
+        count : 12000,
+        sign : '+',
+        title : 'Alumni Worldwide'
+    },
+];
+export const programs = [
+    {
+      title: "Undergraduate Programs",
+      desc: "Explore diverse bachelor degree programs across multiple disciplines.",
+      highlights: [
+        "Popular courses: Engineering, Business, Arts & Sciences",
+        "Research opportunities and internships",
+        "Scholarship programs available",
+      ],
+      icon: FaGraduationCap,
+      image: "/programs/progs1.webp",
+      bullets: ["BSc, BA, BEng", "Industry placements", "Scholarships available"],
+    },
+    {
+      title: "Postgraduate Programs",
+      desc: "Advance your academic journey with master's and PhD programs.",
+      highlights: [
+        "Specializations in Science, Technology, Management",
+        "Research-focused curriculum",
+        "International collaboration opportunities",
+      ],
+      icon: FaBookOpen,
+      image: "/programs/progs2.webp",
+       bullets: ["Master's & PhD", "Research scholarships", "Professional doctorates"],
+
+    },
+    {
+        title: "Professional / Certificate Programs",
+        desc: "Enhance your skills with industry-focused short courses and certification programs.",
+        highlights: [
+            "Short-term professional training",
+            "Industry-recognized certifications",
+            "Flexible schedules for working individuals"
+        ],
+        icon: FaAward,
+        image: "/programs/progs3.webp",
+        bullets: ["Short courses", "CPD & microcredentials", "Executive education"],
+    }
+]
+export const facilities:facs[] = [
+    {
+        image : '/facilities/facs1.webp',
+        icon : FaBookReader,
+        title : 'Digital Library',
+        description: "Access thousands of e-books, journals, research papers, and multimedia learning resources.",
+    },
+    {
+        image : '/facilities/facs2.webp',
+        icon : FiCpu,
+        title : 'Modern Laboratories',
+        description: "State-of-the-art science, engineering, and computer laboratories for hands-on learning.",
+    },
+    {
+        image : '/facilities/facs3.webp',
+        icon : RiComputerLine,
+        title : 'Learning Management System (LMS)',
+        description: "A modern LMS where students access course materials, submit assignments, and attend online classes.",
+    },
+    {
+        image : '/facilities/facs4.webp',
+        icon : BiBrain,
+        title : 'Research Centers',
+        description: "Innovative research hubs driving academic discoveries and industry collaborations.",
+    },
+    {
+        image : '/facilities/facs5.webp',
+        icon : FaHome,
+        title : 'Student Accomodation',
+        description: "Comfortable on-campus and off-campus housing options to support student life.",
+    },
+    {
+        image : '/facilities/facs6.webp',
+        icon : FaHospitalUser,
+        title : 'Health Centers',
+        description: "A fully equipped medical center providing healthcare, emergency support, and wellness services.",
+    },
+    
+]
 export const testimonials = [
     {
-        image : '',
+        image : '/test/test1.jpg',
         name : 'Emma Richardson',
         role : 'Computer Science Students',
         rating : 5,
         text : 'The hands-on learning approach and  world-class faculty have transformed my understanding of technology. The research opportunities and industry connections have been invaluablefor my career development',
     },
     {
-        image : '',
+        image : '/test/test2.jpg',
         name : 'Marcus Johnson',
         role : 'Alumni - Software Engineer at Tech Crop',
         rating : 5,
-        text : 'This university prepared me exceptionally well for the real world. Ths skills i gained and the network I built continue to benefit my career every single day.'
+        text : 'This university prepared me exceptionally well for the real world. Ths skills i gained and the network I built continue to benefit my career every single day, which made a spectacular candidates among competitors in the tech world.'
     },
     {
-        image : '',
+        image : '/test/test3.jpg',
         name : 'Priya Sharma',
         role : 'Medical Students',
         rating : 5,

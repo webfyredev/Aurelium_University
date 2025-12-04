@@ -64,8 +64,8 @@ export default function NewsEvents(){
                     </div>
                     <div className="w-[35%] flex flex-col rounded-md space-y-4">
                         {newEvents.slice(0,3).map((data, index) => (
-                            <div key={index} className="flex rounded-md shadow-sm bg-white">
-                                <img src={data.image} alt={data.title} className="w-[40%] h-28.5 rounded-l-md object-cover" />
+                            <div key={index} className="flex rounded-md shadow-sm bg-white overflow-hidden group">
+                                <img src={data.image} alt={data.title} className="w-[40%] h-28.5 rounded-l-md object-cover group-hover:scale-105 transition-transform duration-300" />
                                 <div className="h-full space-y-1.5 w-full p-2 rounded-r-md">
                                     <p className="mt-2 text-[13px] font-semibold bg-gradient-to-r from-purple-500 to-purple-600 bg-clip-text text-transparent">{data.tags}</p>
                                     <h2 className="text-xs font-semibold">

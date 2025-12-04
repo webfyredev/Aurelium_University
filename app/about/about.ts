@@ -20,7 +20,7 @@ export const team: teams[] = [
         id : 2,
         image : '/team/team2.webp',
         name : 'Prof. Maria Santos',
-        position : 'Vice-Chancellorfor Academic Affairs',
+        position : 'Vice-Chancellor for Academic Affairs',
         context : 'Championing innovative teaching methodologies and curriculum development to ensure world-class education standards',
         mail : 'vc.academic@university.edu'
     },
@@ -188,3 +188,34 @@ export const milestone: history[] = [
     },
 
 ]
+
+export const alumni_stories = [
+    {
+      image: "/about/alumni1.jpg",
+      name: "Dr. Jane Okoro",
+      achievement: "World Bank Climate Research Fellow",
+      story:
+        "Now a leading environmental scientist contributing to global climate resilience projects.",
+    },
+    {
+      image: "/about/alumni2.jpg",
+      name: "Engr. Samuel Adeyemi",
+      achievement: "Lead Engineer, Tesla Energy",
+      story:
+        "Designed sustainable energy systems now used across Africa and Europe.",
+    },
+    {
+      image: "/about/alumni3.jpg",
+      name: "Prof. Maria Hassan",
+      achievement: "Top 1% Cited Researcher (Elsevier)",
+      story:
+        "Published groundbreaking research in public health and epidemiology.",
+    },
+    {
+      image: "/about/alumni4.jpg",
+      name: "David Ayoola",
+      achievement: "Founder, AgriTech Labs",
+      story:
+        "Created smart farming tools adopted by over 50,000 farmers nationwide.",
+    },
+  ];

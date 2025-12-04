@@ -2,9 +2,10 @@
 import type { Metadata } from "next";
 import Header from "../components/header";
 import DefaultNavBar from "../components/defaultNav";
-import { campus_infra, difference, impacts, milestone, team, values } from "./about";
+import { campus_infra, difference, impacts, milestone, team, values, } from "./about";
 import FooterCTA from "../components/footer_Cta";
 import { FaEnvelope, FaLinkedinIn } from "react-icons/fa";
+import Alumni_Stories from "../components/alumni";
 
 export const metadata: Metadata = {
   title: "Aurelium | About",
@@ -18,10 +19,10 @@ export default function About_Us(){
         <>
             <DefaultNavBar />
             <Header 
-            image = '/hero/hero2.webp'
+            image = '/header/about.webp'
             title = 'Our Story'
             text = "Building tomorrow's leaders since 2000"/>
-            <div className="w-full flex space-x-10 border-1 border-red-500 p-10">
+            <div className="w-full flex space-x-10 p-10">
                 <div className="w-[45%] h-140 p-5">
                     <h4 className="font-semibold text-xs text-spacing-5 mt-5 text-purple-600">
                         ABOUT AURELIUM UNIVERSITY
@@ -75,7 +76,7 @@ export default function About_Us(){
                 <div className="w-20 my-3 border-2 border-purple-700"></div>
                 <div className="w-full p-5 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                     {milestone.map((data) => (
-                        <div key={data.id} className="mb-3 p-5 rounded-md shadow-sm flex flex-col items-left space-y-1.5 hover:shadow-lg cursor-pointer hover:border-1 hover:border-purple-500 transition-all duration-300">
+                        <div key={data.id} className=" bg-white mb-3 p-5 rounded-xl shadow-sm flex flex-col items-left space-y-1.5 hover:shadow-lg cursor-pointer hover:border-1 hover:border-purple-500 transition-all duration-300">
                         <h3 className="font-bold text-lg bg-gradient-to-r from-purple-500 to-purple-600 text-transparent bg-clip-text">
                             {data.year}
                         </h3>
@@ -105,7 +106,7 @@ export default function About_Us(){
                 </p>
                 <div className="w-full px-10 py-5 mt-5 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                     {campus_infra.map((data) => (
-                        <div key={data.id} className="bg-white p-5 flex flex-col items-center space-y-2 shadow-sm hover:shadow-lg rounded-md cursor-pointer transition-all duration-300">
+                        <div key={data.id} className="bg-white p-5 flex flex-col items-center space-y-2 shadow-md hover:shadow-lg rounded-xl cursor-pointer transition-all duration-300">
                             <data.icon  className="w-12 h-12 p-3 border-1 rounded-md bg-gradient-to-r from-purple-500 to-purple-600 text-white"/>
                             <h3 className="text-purple-950 font-semibold text-sm mt-2">
                                 {data.title}
@@ -127,8 +128,8 @@ export default function About_Us(){
                 <div className="w-20 my-3 border-2 border-white"></div>
                 <div className="w-full mt-5 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 p-5">
                     {team.map((team) => (
-                        <div key={team.id} className="p-5 rounded-md bg-white relative flex flex-col items-center ">
-                            <img src={team.image} className="w-full h-55 object-cover rounded-md"/>
+                        <div key={team.id} className="p-5 rounded-md bg-white relative flex flex-col items-center group overflow-hidden">
+                            <img src={team.image} className="w-full h-55 object-cover rounded-md group-hover:scale-105 transition-transform duration-300"/>
                             <div className="absolute w-12 h-12 top-52 left-[85%] rounded-full bg-gradient-to-r from-purple-500 to-purple-600 flex items-center justify-center cursor-pointer">
                                 <FaLinkedinIn  className="text-white"/>
                             </div>
@@ -159,7 +160,7 @@ export default function About_Us(){
                 <div className="w-20 my-3 border-2 border-purple-700"></div>
                 <div className="w-full px-10 py-5 mt-5 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
                     {values.map((data) => (
-                        <div key={data.id} className="flex flex-col items-center px-8 py-5 space-y-3 rounded-md shadow-sm hover:shadow-lg cursor-pointer transition-all duration-300">
+                        <div key={data.id} className="flex flex-col items-center px-8 py-5 space-y-3 rounded-xl shadow-sm hover:shadow-lg cursor-pointer transition-all duration-300">
                             <data.icon  className="w-12 h-12 p-3 border-1 rounded-md bg-gradient-to-r from-purple-500 to-purple-600 text-white"/>
                             <h3 className="text-purple-950 font-semibold text-sm mt-2">
                                 {data.title}
@@ -171,6 +172,7 @@ export default function About_Us(){
                     ))}
                 </div>
             </div>
+            
             <div className="w-full mt-5 p-10 bg-gradient-to-r from-slate-50 to-purple-50 flex flex-col items-center">
                 <h4 className="font-semibold text-xs text-spacing-5 mt-5 text-purple-600 mb-3">
                     VIRTUAL EXPERIENCE
@@ -193,7 +195,7 @@ export default function About_Us(){
                 <div className="w-20 my-3 border-2 border-purple-700"></div>
                 <div className="w-[85%] mt-5 p-5 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
                     {impacts.map((data) => (
-                        <div key={data.id} className="flex flex-col items-center p-5 rounded-md shadow-sm hover:shadow-lg cursor-pointer transition-all duration-300">
+                        <div key={data.id} className="flex flex-col items-center p-5 rounded-xl shadow-sm hover:shadow-lg cursor-pointer transition-all duration-300">
                             <data.icon  className="w-12 h-12 p-3 rounded-md text-purple-600"/>
                             <h3 className="text-purple-950 font-semibold text-sm mt-2">
                                 {data.title}
@@ -219,8 +221,8 @@ export default function About_Us(){
                 </p>
                 <div className="w-[85%] mt-5 p-5 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
                     {difference.map((data) => (
-                        <div key={data.id} className="flex flex-col items-center p-5 shadow-sm rounded-md">
-                            <h3 className="text-3xl font-bold bg-gradient-to-r from-purple-500 to-purple-600 text-transparent bg-clip-text">
+                        <div key={data.id} className="flex flex-col items-center p-5 shadow-sm hover:shadow-lg rounded-xl cursor-pointer transition-all duration-300">
+                            <h3 className="text-4xl font-bold bg-gradient-to-r from-purple-500 to-purple-600 text-transparent bg-clip-text">
                                 {data.value}
                             </h3>
                             <p className="text-sm font-semibold mt-2 text-purple-950">
@@ -233,6 +235,7 @@ export default function About_Us(){
                     ))}
                 </div>
             </div>
+            <Alumni_Stories />
             <FooterCTA 
             title = 'Join Our Legacy of Excellence'
             text = 'Become part of a community thats shaping the future through education, innovation, and impact'

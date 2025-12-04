@@ -19,3 +19,42 @@
 #slider .swiper-pagination-bullet-active{
   @apply !bg-purple-300 !opacity-100 !w-6 !rounded-md
 }
+#research .swiper-button-next, #research .swiper-button-prev {
+  display: none;
+}
+#research_news .swiper-button-next, #research_news .swiper-button-prev {
+  display: none;
+}
+/* #research .swiper-pagination-bullet{
+  @apply !opacity-100 !top-70
+} */
+#research .swiper{
+  @apply !h-95
+}
+#research_news .swiper{
+  @apply !h-60
+}
+ #research_news .swiper-pagination-bullet{
+  @apply !bg-purple-300 !opacity-100
+}
+#research_news .swiper-pagination-bullet-active{
+  @apply !bg-purple-500 !opacity-100 !w-6 !rounded-md
+} 
+#research .swiper-pagination-bullet{
+  @apply !bg-purple-300 !opacity-100
+}
+#research .swiper-pagination-bullet-active{
+  @apply !bg-purple-500 !opacity-100 !w-6 !rounded-md
+}
+#alumni .swiper{
+  @apply !h-100
+}
+#alumni .swiper-button-next, #alumni .swiper-button-prev{
+  display: none;
+}
+#alumni .swiper-pagination-bullet{
+  @apply !bg-purple-300 !opacity-100
+}
+#alumni .swiper-pagination-bullet-active{
+  @apply !bg-purple-500 !opacity-100 !w-6 !rounded-md
+}

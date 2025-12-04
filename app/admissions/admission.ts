@@ -5,6 +5,7 @@ import { FaCertificate, FaEnvelopeOpenText, FaGraduationCap, FaListUl, FaPaperPl
 import { GiGraduateCap } from "react-icons/gi";
 interface admissions {id:number, icon : React.ElementType, title: string, text:string}
 interface required { id :number, title : string, icon : React.ElementType, qualfs :string[]}
+interface award {title : string, text:string, percent:string}
 export const apply = [
     {
         id : 1,
@@ -51,4 +52,28 @@ export const requirements = [
         icon : FaCertificate,
         qualfs : ['High School Certificate', 'GPA 2.5 or higher', 'English Proficiency', 'Personal Statements']
     },
+];
+
+export const scholarsips:award[] = [
+    {
+        title : 'Merit Scholarship',
+        text : 'Outstanding academic achievement',
+        percent : '100%',
+    },
+    {
+        title : 'Need-Based Aid',
+        text : 'Demostrated Financial need',
+        percent : '75%',
+    },
+    {
+        title : 'International Student Scholarship',
+        text : 'International students with excellent records',
+        percent : '50%',
+    },
+    {
+        title : 'Sports Excellence Award',
+        text : 'Outstanding athletic achievements',
+        percent : '50%',
+    },
 ]
+export const aid:string[] = ['Over $2.5 million in scholarships awarded anually', 'Merit based and need-based financial assistance', 'Flexible payment plans available']

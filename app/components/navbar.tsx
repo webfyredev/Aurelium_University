@@ -44,7 +44,10 @@ export default function NavBar(){
                             </Link>
                         </li>
                         <li className="px-4 py-2 text-[13px] font-semibold cursor-pointer transition-all duration-300 hover:bg-purple-200 hover:text-purple-400 rounded-sm">
-                            Research
+                            
+                            <Link href="/research">
+                                Research
+                            </Link>
                         </li>
                         <li className="px-4 py-2 text-[13px] font-semibold cursor-pointer transition-all duration-300 hover:bg-purple-200 hover:text-purple-400 rounded-sm">
                             News & Events 

@@ -77,3 +77,22 @@ export const scholarsips:award[] = [
     },
 ]
 export const aid:string[] = ['Over $2.5 million in scholarships awarded anually', 'Merit based and need-based financial assistance', 'Flexible payment plans available']
+
+export const faqs = [
+    {
+        question : 'What are the admission requirements for undergraduates programs',
+        answer: 'Undergraduates admission requires completion of high school with a minimum of 3.0, standardized test scores (SAT/ACT), letters of recommendation, personal statement, and a proof of English proficiency for international students (TOEFL/IELTS)',
+    },
+    {
+        question : 'Are scholarships available for international students',
+        answer : 'Yes, we offer merit-based scholarships, need-based financial aid, and special scholarships for international students. Scholarship amount range from 25% to 100% tuition coverage based on academic excellence and financial need.'
+    },
+    {
+        question : 'What is the application deadline',
+        answer : 'For Fall semester admission, the priority deadline is January 15th, and the regular deadline is March 1st. Spring Semester applications are due by October 1st. Early application is recommended for scholarship consideration.'
+    },
+    {
+        question : 'Can i transfer credits from another university',
+        answer : 'Yes, we accept transfer credits from accredited institutions. Credits are evaluated on a case-by-case basics. Generally, course with a grade of C or higher are eligible for transfer. Contact our admissions office for a preliminary evaluation.'
+    },
+]

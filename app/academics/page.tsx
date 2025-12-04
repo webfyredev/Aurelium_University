@@ -1,16 +1,28 @@
 "use client";
-import { FaCheckCircle } from "react-icons/fa";
+import { FaArrowRight, FaAward, FaCheckCircle, FaClock, FaUniversity } from "react-icons/fa";
 import DefaultNavBar from "../components/defaultNav";
 import FooterCTA from "../components/footer_Cta";
 import Header from "../components/header";
 import { Metadata } from "next";
-import { academic, service2, support_service } from "./academics";
+import { academic, service2, support_service, programs } from "./academics";
 import Alumni_Stories from "../components/alumni";
+import { useState } from "react";
 
 const metadata : Metadata = {
     title : "Aurelium | Academics"
 }
+
+const faculties = ['All', 'Science', 'Engineering', 'Arts', 'Social Sciences', 'Management Sciences', 'Education', 'Health Sciences', 'Agriculture', 'Environmental Sciences']
 export default function Academics(){
+    const [selectedFaculty, setSelectedFaculty] = useState("All");
+    const [currentPage, setCurrentPage] = useState(1);
+    const programsPage = 12;
+
+    const filteredPrograms = selectedFaculty === "All" ? programs : programs.filter(p => p.faculty === selectedFaculty);
+    const totalPages = Math.ceil(filteredPrograms.length / programsPage);
+    const startIndex = (currentPage - 1) * programsPage;
+    const paginatedPrograms = filteredPrograms.slice(startIndex, startIndex + programsPage);
+
     return(
         <>
             <DefaultNavBar />
@@ -18,7 +30,7 @@ export default function Academics(){
             image="/header/academics.webp"
             title = 'Academic Excellence'
             text = 'Discover world-class programs designed to shape future leaders and innovators'/>
-            <div className="w-full p-10 border-1 flex flex-col items-center bg-white">
+            <div className="w-full p-10 flex flex-col items-center bg-white">
                 <h4 className="font-semibold text-xs text-spacing-5 mt-5 text-purple-600 mb-3">
                     OUR PROGRAMS
                 </h4>
@@ -26,6 +38,51 @@ export default function Academics(){
                     Explore Academic Programs
                 </h2>
                 <div className="w-20 my-3 border-2 border-purple-700"></div>
+                <div className="p-5 w-full flex justify-center gap-3 mb-3 items-center">
+                    {faculties.map((faculty, index) => (
+                        <button key={index} 
+                        className={`px-4 py-2 text-[11px] rounded-md border font-semibold cursor-pointer ${selectedFaculty === faculty ? "bg-gradient-to-r from-purple-500 to-purple-600 text-white" : "bg-white text-purple-600 border-1 border-purple-600" }`} 
+                        onClick={() => {
+                            setSelectedFaculty(faculty);
+                            setCurrentPage(1);
+                        }}>
+                        {faculty}
+                        </button>
+                    ))}
+                </div>
+                <div className="w-full p-5 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                    {paginatedPrograms.map((program, index) => (
+                        <div key={index} className="rounded-lg shadow-sm overflow-hidden hover:shadow-xl cursor-pointer transition mb-3 group">
+                            <img src={program.image} alt={program.name} className="w-full h-48 object-cover rounded-t-md group-hover:scale-105 transition duration-300"/>
+                            <div className="p-3 rounded-b-md">
+                                <h3 className="font-bold text-purple-950">{program.name}</h3>
+                                <p className="text-[12px] my-2">
+                                    {program.description}
+                                </p>
+                                <div className="flex justify-between">
+                                    <p className="flex items-center text-[10px] text-purple-950 font-semibold"><FaClock  className="mr-0.5"/> {program.duration} Years</p>
+                                    <p className="flex items-center text-[10px] text-purple-950 font-semibold"><FaAward  className="mr-0.5"/> {program.degree}</p>
+                                </div>
+                                <hr  className="w-full mt-3 text-purple-100"/>
+                                <p className="flex text-xs items-center mt-3 font-semibold text-purple-950"><FaUniversity  className="mr-1"/> Faculty of {program.faculty}</p>
+                                <a href="" className="flex items-center text-xs mt-4 mb-2  font-semibold text-purple-500">Apply Now <FaArrowRight  className="ml-0.5 mt-0.5 w-2.5 h-2.5"/></a>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+                {totalPages > 1 && (
+                    <div className="flex justify-center mt-6 gap-2">
+                        {Array.from({length:totalPages}, (_, i) => i +1).map(page => (
+                            <button key={page}
+                            onClick={() => setCurrentPage(page)}
+                                className={`px-3 py-1 rounded-md border cursor-pointer text-sm ${currentPage === page ? 'bg-gradient-to-r from-purple-500 to-purple-600 text-white font-semibold' : 'bg-white text-purple-600 border-purple-600'}`}
+                            >
+                                {page}
+                            </button>
+                        ))}
+                    </div>
+                )}
+
             </div>
             <div className="w-full p-10 flex flex-col items-center bg-gradient-to-r from-slate-50 to-purple-50">
                 <h4 className="font-semibold text-xs text-spacing-5 mt-5 text-purple-600 mb-3">
@@ -43,7 +100,7 @@ export default function Academics(){
                     {academic.map((data, index) => (
                         <div key={index} className="p-5 rounded-xl shadow-sm flex flex-col items-center cursor-pointer hover:shadow-xl bg-white transition-all duration-300">
                             <data.icon  className="w-12 h-12 p-3.5 rounded-md bg-gradient-to-r from-purple-500 to-purple-600 text-white"/>
-                            <h3 className="mt-4 text-sm font-semibold text-purple-950">
+                            <h3 className="mt-4 text-sm font-bold text-purple-950">
                                 {data.title}
                             </h3>
                             <p className="text-xs mt-4 text-center mb-3">
@@ -53,7 +110,7 @@ export default function Academics(){
                     ))}
                 </div>
             </div>
-            <div className="w-full border-1 p-10 bg-gradient-to-r from-slate-50 to-purple-50 flex flex-col items-center">
+            <div className="w-full p-10 bg-gradient-to-r from-slate-50 to-purple-50 flex flex-col items-center">
                 <h4 className="font-semibold text-xs text-spacing-5 mt-5 text-purple-600 mb-3">
                     STUDENT SUCCESS
                 </h4>

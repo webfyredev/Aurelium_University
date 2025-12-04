@@ -4,6 +4,7 @@ import Header from "../components/header";
 import { aid, apply, requirements, scholarsips } from "./admission";
 import { FaPaperPlane } from "react-icons/fa6";
 import { Metadata } from "next";
+import Faqs from "../components/faqs";
 export const metadata : Metadata = {
     title : "Aurelium | Admissions"
 }
@@ -26,7 +27,7 @@ export default function Admissioons(){
                 <div className="w-20 my-3 border-2 border-purple-700"></div>
                 <div className="w-[90%] mt-5 p-5 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
                     {apply.map((data) => (
-                        <div key={data.id} className="p-5 flex flex-col items-center group rounded-lg shadow-md hover:shadow-lg cursor-pointer hover:border-1 hover:border-purple-500 transition-all duration-300">
+                        <div key={data.id} className="p-5 flex flex-col items-center group rounded-lg shadow-md hover:shadow-lg cursor-pointer hover:border-1 hover:border-purple-500 transition">
                             <data.icon  className="w-13 h-13 p-4 rounded-full bg-purple-100 text-purple-500 group-hover:bg-gradient-to-r from-purple-500 to-purple-600 group-hover:text-white "/>
                             <h2 className="text-sm font-semibold text-purple-950 mt-2.5">
                                 {data.title}
@@ -160,15 +161,7 @@ export default function Admissioons(){
                     ))}
                 </div>
             </div>
-            <div className="w-full p-10 flex flex-col items-center bg-white">
-                <h4 className="font-semibold text-xs text-spacing-5 mt-5 text-purple-600 mb-3">
-                    HAVE QUESTION?
-                </h4>
-                <h2 className="text-3xl font-bold text-purple-950">
-                    Frequently Asked Questions
-                </h2>
-                <div className="w-20 my-3 border-2 border-purple-700"></div>
-            </div>
+            <Faqs />
             <div className="w-full py-5 px-15 bg-purple-950 flex justify-between items-center">
                 <div className="flex space-x-5 p-5 items-center">
                     <FaUsers  className="w-10 h-10 text-purple-200"/>

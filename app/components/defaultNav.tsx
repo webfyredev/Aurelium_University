@@ -12,7 +12,7 @@ export default function DefaultNavBar(){
                             <h3>Aurelium University</h3>
                         </Link>
                     </div>
-                    <ul className={`flex space-x-1.5 items-center text-purple-400`}>
+                    <ul className={`hidden lg:flex space-x-1.5 items-center text-purple-400`}>
                         <li className="px-4 py-2 text-[13px] font-semibold cursor-pointer transition-all duration-300 hover:bg-purple-100 rounded-sm">
                             <Link href="/">
                                 Home
@@ -39,10 +39,14 @@ export default function DefaultNavBar(){
                             </Link>
                         </li>
                         <li className="px-4 py-2 text-[13px] font-semibold cursor-pointer transition-all duration-300 hover:bg-purple-100 rounded-sm">
-                            News & Events 
+                            <Link href="/ns_events">
+                                News & Events 
+                            </Link>
                         </li>
                         <li className="px-4 py-2 text-[13px] font-semibold cursor-pointer transition-all duration-300 hover:bg-purple-100 rounded-sm">
-                            Gallery
+                            <Link href="/gallery">
+                                Gallery
+                            </Link>
                         </li>
                         <li className="px-4 py-2 text-[13px] font-semibold cursor-pointer transition-all duration-300 hover:bg-purple-100 rounded-sm">
                             Contact

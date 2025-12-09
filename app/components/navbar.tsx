@@ -22,7 +22,7 @@ export default function NavBar(){
                             <h3>Aurelium University</h3>
                         </Link>
                     </div>
-                    <ul className={`flex space-x-1.5 items-center ${scrolled ? 'text-purple-400' : 'text-purple-100'}`}>
+                    <ul className={`hidden lg:flex space-x-1.5 items-center ${scrolled ? 'text-purple-400' : 'text-purple-100'}`}>
                         <li className="px-4 py-2 text-[13px] font-semibold cursor-pointer transition-all duration-300 hover:bg-purple-200 hover:text-purple-400 rounded-sm">
                             <Link href="/">
                                 Home
@@ -49,11 +49,15 @@ export default function NavBar(){
                                 Research
                             </Link>
                         </li>
-                        <li className="px-4 py-2 text-[13px] font-semibold cursor-pointer transition-all duration-300 hover:bg-purple-200 hover:text-purple-400 rounded-sm">
-                            News & Events 
+                        <li className="px-4 py-2 text-[13px] font-semibold cursor-pointer transition-all duration-300 hover:bg-purple-200 hover:text-purple-400 rounded-sm"> 
+                            <Link href="/ns_events">
+                                News & Events 
+                            </Link>
                         </li>
                         <li className="px-4 py-2 text-[13px] font-semibold cursor-pointer transition-all duration-300 hover:bg-purple-200 hover:text-purple-400 rounded-sm">
-                            Gallery
+                            <Link href="/gallery">
+                                Gallery
+                            </Link>
                         </li>
                         <li className="px-4 py-2 text-[13px] font-semibold cursor-pointer transition-all duration-300 hover:bg-purple-200 hover:text-purple-400 rounded-sm">
                             Contact

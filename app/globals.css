@@ -4,6 +4,9 @@
 @import "swiper/css/navigation";
 @import "swiper/css/pagination";
 
+body{
+  overflow-x: hidden;
+}
 #swiperSec .swiper-button-next, #swiperSec .swiper-button-prev {
   display: none;
 } 

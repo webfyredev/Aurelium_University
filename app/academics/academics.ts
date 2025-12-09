@@ -574,4 +574,46 @@ export const programs:program[] = [
         "degree": "B.Sc",
         "faculty": "Environmental Sciences"
     }
+];
+interface academic_date {title : string, text : string}
+export const academic_dates:academic_date[] = [
+    {
+        title : 'Fall Semester Begins',
+        text : 'September 1, 2025'
+    },
+    {
+        title : 'Mid-term Examinations',
+        text : 'October 15-20, 2025'
+    },
+    {
+        title : 'Spring Semester Begins',
+        text : 'January 15, 2026'
+    },
+    {
+        title : 'Mid-term Examinations',
+        text : 'March 10-15, 2026'
+    },
+    {
+        title : 'Spring Semester Ends',
+        text : 'May 30, 2026'
+    }
+];
+
+export const research_centers:academic_date[] = [
+    {
+        title : 'AI & Machine Learning Lab',
+        text : 'Artificial Intelligence Research'
+    },
+    {
+        title : 'Biomedical Research Center',
+        text : 'Medical Innovation & Healthcare'
+    },
+    {
+        title : 'Sustainable Energy Institute',
+        text : 'Renewable Energy Solutions'
+    },
+    {
+        title : 'Innovation & Entreprenuership Hub',
+        text : 'Startup Development'
+    }
 ]

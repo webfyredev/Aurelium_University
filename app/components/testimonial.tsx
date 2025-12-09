@@ -5,15 +5,15 @@ import { testimonials } from "../pageData";
 export default function Testimonials(){
     return(
         <>
-            <div className="w-full p-10 bg-purple-950 flex flex-col items-center">
+            <div className="w-full p-5 lg:p-10 bg-purple-950 flex flex-col items-center">
                 <h4 className="font-semibold text-xs text-spacing-5 mt-5 text-purple-300">
                     STUDENT VOICES
                 </h4>
-                <h2 className="text-4xl font-bold mt-2 text-white">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mt-2 text-white">
                     What our Community Says
                 </h2>
                 <div className="w-20 mt-5 border-2 border-purple-200"></div>
-                <div className="w-[90%] p-5 mt-5 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                <div className="w-full lg:w-[90%] lg:p-5 mt-5 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                     {testimonials.map((test, index) => (
                         <div key={index} className="p-5 rounded-md bg-white flex flex-col">
                             <div className="w-full flex space-x-2 items-center">

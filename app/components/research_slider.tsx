@@ -9,11 +9,11 @@ export default function ResearchSlider(){
                 <h4 className="font-semibold text-xs text-spacing-5 mt-5 text-purple-600 mb-3">
                     RESEARCH AREAS
                 </h4>
-                <h2 className="text-3xl font-bold text-purple-950">
+                <h2 className="text-2xl md:text-3xl font-bold text-purple-950">
                     Our Research Areas
                 </h2>
                 <div className="w-20 my-3 border-2 border-purple-700"></div>
-                <div className="w-full py-10" id="research">
+                <div className="w-full py-5 lg:py-10" id="research">
                     <Swiper
                         modules={[Navigation, Pagination, Autoplay]}
                         spaceBetween={20}
@@ -27,8 +27,10 @@ export default function ResearchSlider(){
                             640 : {slidesPerView : 1},
                             768 : {slidesPerView : 2},
                             1024 : {slidesPerView : 3},
+        
 
                         }}
+                        className="w-full"
                     >
                         {researchAreas.map((area, index) => (
                             <SwiperSlide key={index} className="cursor-pointer">

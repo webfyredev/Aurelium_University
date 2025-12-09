@@ -1,10 +1,10 @@
 "use client";
-import { FaArrowRight, FaAward, FaCheckCircle, FaClock, FaUniversity } from "react-icons/fa";
+import { FaArrowRight, FaAward, FaCalendar, FaCheckCircle, FaClock, FaFlask, FaUniversity } from "react-icons/fa";
 import DefaultNavBar from "../components/defaultNav";
 import FooterCTA from "../components/footer_Cta";
 import Header from "../components/header";
 import { Metadata } from "next";
-import { academic, service2, support_service, programs } from "./academics";
+import { academic, service2, support_service, programs, academic_dates, research_centers } from "./academics";
 import Alumni_Stories from "../components/alumni";
 import { useState } from "react";
 
@@ -12,7 +12,7 @@ const metadata : Metadata = {
     title : "Aurelium | Academics"
 }
 
-const faculties = ['All', 'Science', 'Engineering', 'Arts', 'Social Sciences', 'Management Sciences', 'Education', 'Health Sciences', 'Agriculture', 'Environmental Sciences']
+const faculties = ['All', 'Science', 'Engineering', 'Law', 'Arts', 'Social Sciences', 'Management Sciences', 'Education', 'Health Sciences', 'Agriculture', 'Environmental Sciences']
 export default function Academics(){
     const [selectedFaculty, setSelectedFaculty] = useState("All");
     const [currentPage, setCurrentPage] = useState(1);
@@ -30,15 +30,15 @@ export default function Academics(){
             image="/header/academics.webp"
             title = 'Academic Excellence'
             text = 'Discover world-class programs designed to shape future leaders and innovators'/>
-            <div className="w-full p-10 flex flex-col items-center bg-white">
+            <div className="w-full p-5 lg:p-10 flex flex-col items-center bg-white">
                 <h4 className="font-semibold text-xs text-spacing-5 mt-5 text-purple-600 mb-3">
                     OUR PROGRAMS
                 </h4>
-                <h2 className="text-3xl font-bold text-purple-950">
+                <h2 className="text-2xl md:text-3xl font-bold text-purple-950">
                     Explore Academic Programs
                 </h2>
                 <div className="w-20 my-3 border-2 border-purple-700"></div>
-                <div className="p-5 w-full flex justify-center gap-3 mb-3 items-center">
+                <div className="p-5 w-full hidden lg:flex justify-center gap-3 mb-3 items-center">
                     {faculties.map((faculty, index) => (
                         <button key={index} 
                         className={`px-4 py-2 text-[11px] rounded-md border font-semibold cursor-pointer ${selectedFaculty === faculty ? "bg-gradient-to-r from-purple-500 to-purple-600 text-white" : "bg-white text-purple-600 border-1 border-purple-600" }`} 
@@ -50,7 +50,7 @@ export default function Academics(){
                         </button>
                     ))}
                 </div>
-                <div className="w-full p-5 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                <div className="w-full lg:p-5 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                     {paginatedPrograms.map((program, index) => (
                         <div key={index} className="rounded-lg shadow-sm overflow-hidden hover:shadow-xl cursor-pointer transition mb-3 group">
                             <img src={program.image} alt={program.name} className="w-full h-48 object-cover rounded-t-md group-hover:scale-105 transition duration-300"/>
@@ -84,19 +84,19 @@ export default function Academics(){
                 )}
 
             </div>
-            <div className="w-full p-10 flex flex-col items-center bg-gradient-to-r from-slate-50 to-purple-50">
+            <div className="w-full p-5 lg:p-10 flex flex-col items-center bg-gradient-to-r from-slate-50 to-purple-50">
                 <h4 className="font-semibold text-xs text-spacing-5 mt-5 text-purple-600 mb-3">
                     LEARNING EXPERIENCE
                 </h4>
-                <h2 className="text-3xl font-bold text-purple-950">
+                <h2 className="text-2xl md:text-3xl font-bold text-purple-950">
                     Our Teaching Approach
                 </h2>
                 <div className="w-20 my-3 border-2 border-purple-700"></div>
-                <p className="text-[13px] w-150 text-center mt-2 text-gray-500">
+                <p className="text-xs md:text-[13px] w-85 md:w-150 text-center mt-2 text-gray-500">
                     We combine innovative teaching methods with hands-on experience to ensure our
                     students are prepared for the challenges of tomorrow.
                 </p>
-                <div className="w-[90%] mt-5 p-5 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+                <div className="w-full lg:w-[90%] mt-5 lg:p-5 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
                     {academic.map((data, index) => (
                         <div key={index} className="p-5 rounded-xl shadow-sm flex flex-col items-center cursor-pointer hover:shadow-xl bg-white transition-all duration-300">
                             <data.icon  className="w-12 h-12 p-3.5 rounded-md bg-gradient-to-r from-purple-500 to-purple-600 text-white"/>
@@ -110,18 +110,18 @@ export default function Academics(){
                     ))}
                 </div>
             </div>
-            <div className="w-full p-10 bg-gradient-to-r from-slate-50 to-purple-50 flex flex-col items-center">
+            <div className="w-full p-5 lg:p-10 bg-gradient-to-r from-slate-50 to-purple-50 flex flex-col items-center">
                 <h4 className="font-semibold text-xs text-spacing-5 mt-5 text-purple-600 mb-3">
                     STUDENT SUCCESS
                 </h4>
-                <h2 className="text-3xl font-bold text-purple-950">
+                <h2 className="text-2xl md:text-3xl font-bold text-purple-950">
                     Academic Support Services
                 </h2>
                 <div className="w-20 my-3 border-2 border-purple-700"></div>
-                <p className="text-[13px] w-150 text-center mt-2 text-gray-500">
+                <p className="text-xs md:text-[13px] w-85 md:w-150 text-center mt-2 text-gray-500">
                     We provide comprehensive support to help every student achieve their academic goals and reach their full potential
                 </p>
-                <div className="w-[90%] p-5 mt-5 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+                <div className="w-full lg:w-[90%] lg:p-5 mt-5 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
                     {support_service.map((service) => (
                         <div className="p-5 rounded-xl shadow-sm hover:shadow-xl cursor-pointer flex flex-col items-center bg-white transition-all duration-300">
                             <service.icon  className="w-11 h-11 p-3.5 rounded-xl bg-purple-100 text-purple-500"/>
@@ -134,7 +134,7 @@ export default function Academics(){
                         </div>
                     ))}
                 </div>
-                <div className="w-[90%] mt-5 p-5 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-5">
+                <div className="w-full lg:w-[90%] mt-8 lg:mt-5 lg:p-5 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-5">
                     {service2.map((data, index) => (
                         <div key={index} className="p-3 rounded-xl shadow-sm flex space-x-3 items-center bg-white hover:shadow-lg cursor-pointer transition-all duration-300">
                             <div className="w-11 h-11 rounded-md bg-gradient-to-r from-purple-500 to-purple-600 flex items-center justify-center">
@@ -153,6 +153,48 @@ export default function Academics(){
                 </div>
             </div>
             <Alumni_Stories />
+            <div className="w-full p-5 lg:p-10 bg-white lg:flex lg:flex-row flex flex-col space-x-10">
+                <div className="w-full lg:w-1/2 border-1 border-white lg:p-5 flex flex-col items-left">
+                    <h4 className="font-semibold text-xs text-spacing-5 mt-5 text-purple-600 mb-3">
+                    ACADEMIC CALENDER
+                    </h4>
+                    <h2 className="text-2xl md:text-3xl font-bold text-purple-950">
+                        Important Dates
+                    </h2>
+                    <div className="w-20 my-3 border-2 border-purple-500"></div>
+                    <div className="w-full space-y-4">
+                    {academic_dates.map((dates) => (
+                        <div className="w-full lg:w-[95%] px-2 py-3 rounded-md shadow-sm flex space-x-2 cursor-pointer hover:shadow-lg transition">
+                            <FaCalendar  className="lg:w-10 lg:h-10 w-8 h-8 border-1 p-2 lg:p-3 rounded-md bg-gradient-to-r from-purple-500 to-purple-600 text-white"/>
+                            <div className="flex flex-col space-y-0.5">
+                                <h3 className="font-semibold text-purple-950 text-sm">{dates.title}</h3>
+                                <p className="text-[11px] text-purple-950">{dates.text}</p>
+                            </div>
+                        </div>
+                    ))}
+                    </div>
+                </div>
+                <div className="w-full lg:w-1/2 border-1 border-white lg:p-5 mt-5 lg:mt-0">
+                    <h4 className="font-semibold text-xs text-spacing-5 mt-5 text-purple-600 mb-3">
+                    RESEARCH & INNOVATION
+                    </h4>
+                    <h2 className="text-2xl md:text-3xl font-bold text-purple-950">
+                        Research Centers
+                    </h2>
+                    <div className="w-20 my-3 border-2 border-purple-500"></div>
+                    <div className="w-full space-y-4">
+                        {research_centers.map((center, index) => (
+                            <div key={index} className="w-full lg:w-[95%] px-2 py-3 rounded-md shadow-sm flex space-x-2 cursor-pointer hover:shadow-lg transition">
+                            <FaFlask  className="lg:w-10 lg:h-10 w-8 h-8 p-2 border-1 lg:p-3 rounded-md bg-gradient-to-r from-purple-500 to-purple-600 text-white"/>
+                            <div className="flex flex-col space-y-0.5">
+                                <h3 className="font-semibold text-purple-950 text-sm">{center.title}</h3>
+                                <p className="text-[11px] text-purple-950">{center.text}</p>
+                            </div>
+                        </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
             <FooterCTA
             title = 'Ready to Begin Your Academic Journey?'
             text = 'Visit the research portal, program catalog, or contact an academic advisors.'

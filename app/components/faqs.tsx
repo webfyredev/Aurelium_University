@@ -10,15 +10,15 @@ export default function Faqs(){
     };
     return(
         <>
-            <div className="w-full p-10 flex flex-col items-center bg-white">
+            <div className="w-full p-5 lg:p-10 flex flex-col items-center bg-white">
                 <h4 className="font-semibold text-xs text-spacing-5 mt-5 text-purple-600 mb-3">
                     HAVE QUESTION?
                 </h4>
-                <h2 className="text-3xl font-bold text-purple-950">
+                <h2 className="text-2xl md:text-3xl font-bold text-purple-950">
                     Frequently Asked Questions
                 </h2>
                 <div className="w-20 my-3 border-2 border-purple-700"></div>
-                <div className="space-y-5 mb-10 w-[75%] mt-5">
+                <div className="space-y-5 mb-10 w-full lg:w-[75%] mt-5">
                     {faqs.map((faq, index) =>(
                         <div className="w-full rounded-xl shadow-sm">
                             <button onClick={() => toggleFaq(index)} className="w-full flex justify-between items-center px-4 py-5 text-left bg-white group transition-all duration-300 cursor-pointer rounded-xl">
@@ -26,7 +26,7 @@ export default function Faqs(){
                                 <FaChevronDown  className={`w-3 h-3 transform transition-transform text-purple-950 duration-300 ${activeIndex === index ? "rotate-180" : ""}`}/>
                             </button>
                             {activeIndex === index && (
-                                <div className="p-4 bg-white text-gray-600 text-xs md:text-[13px] transition-all duration-300">
+                                <div className="p-4 bg-white text-gray-600 text-[10px] md:text-[13px] transition-all duration-300">
                                     {faq.answer}
                                 </div>
                             )}

@@ -236,7 +236,7 @@ export default function Hero(){
                                     </motion.div> */}
                                     <div 
                                         ref = {sectionOneRef}
-                                        className='relative top-15 w-[70%] mt-5 p-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mt-5'>
+                                        className='relative top-15 w-[70%] mt-5 p-3 grid grid-cols-none sm:grid-cols-none md:grid-cols-2 lg:grid-cols-4 gap-4 mt-5'>
                                         {hero.map((hero, index) => (
                                             // <motion.div variants={cardHoverEffects}  whileHover="whileHover" key={index} className='border-1 p-3 rounded-md flex flex-col items-center space-y-1.5 bg-white/10 border border-white/10 backdrop-blur-md shadow-lg transition duration-300 hover:bg-white/20 hover:shadow-xl cursor-pointer'>
                                             //     <hero.icon  className="w-6 h-6 "/>

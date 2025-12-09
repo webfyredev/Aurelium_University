@@ -5,15 +5,15 @@ import { alumni_stories } from "../about/about";
 export default function Alumni_Stories(){
     return(
         <>
-            <div className="w-full p-10 flex flex-col items-center">
+            <div className="w-full p-5 lg:p-10 flex flex-col items-center">
                 <h4 className="font-semibold text-xs text-spacing-5 mt-5 text-purple-600 mb-3">
                     ALUMNI IMPACTS
                 </h4>
-                <h2 className="text-3xl font-bold text-purple-950">
+                <h2 className="text-2xl md:text-3xl font-bold text-purple-950">
                     Alumni Success Stories
                 </h2>
                 <div className="w-20 my-3 border-2 border-purple-700"></div>
-                <div className="w-full p-5" id="alumni">
+                <div className="w-full lg:p-5" id="alumni">
                     <Swiper
                         modules={[Autoplay, Pagination, Navigation]}
                         spaceBetween={20}

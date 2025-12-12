@@ -1,18 +1,59 @@
-import { FaArrowRight, FaEnvelope} from "react-icons/fa";
+"use client";
+import { FaArrowRight, FaCalendar, FaEnvelope, FaUser} from "react-icons/fa";
 import DefaultNavBar from "../components/defaultNav";
 import Header from "../components/header";
 import { highlights, press_media, social_media } from "./events";
 import Latest_Research_News from "../components/research_news";
+import { news_data, event_data } from "./events";
+import { useState } from "react";
+import NewsCard from "./newsCard";
+import EventsCard from "./eventsCard";
 
 export default function News_Events(){
+    const [activeTabs, setActiveTabs] = useState<"news" | "events" >("news");
+    const [activeCategory, setActiveCategory] = useState("All");
+    const newsCategory = ["All", "Rankings", "Research", "Campus", "International", "Student Achievements", "Events"];
+    const eventsCategory = ["All", "Admissions", "Research", "Career", "Cultural", "Workshop", "Sports"]
+    const categories = activeTabs === "news" ? newsCategory : eventsCategory;
+    const data = activeTabs === "news" ? news_data : event_data;
+    const filteredItems = activeCategory === "All" ? data : data.filter((item) => item.category === activeCategory);
     return(
         <>
             <DefaultNavBar />
             <Header 
-            image = ''
+            image = '/header/ns1.webp'
             title = 'News & Events'
             text = 'Stay updated with the latest happenings at Aurelium University'/>
             <Latest_Research_News />
+            <div className="p-10">
+                <div className="flex justify-center gap-2 mb-6">
+                    <button onClick={() => {setActiveTabs("news"); setActiveCategory("All");}} className={`px-4 py-2 rounded-full cursor-pointer text-[13px] font-semibold ${activeTabs === "news" ? "bg-gradient-to-r from-purple-500 to-purple-600 text-white" : " bg-white text-purple-950 border border-purple-600"}`}>
+                        News
+                    </button>
+                    <button onClick={() => {setActiveTabs("events"); setActiveCategory("All");}} className={`px-4 py-2 rounded-full cursor-pointer text-[13px] font-semibold ${activeTabs === "events" ? "bg-gradient-to-r from-purple-500 to-purple-600 text-white" : " bg-white text-purple-950 border border-purple-600"}`}>
+                        Events
+                    </button>
+                </div>
+                <div className="flex flex-wrap gap-2 justify-center mb-6">
+                    {categories.map((cat) => (
+                        <button key={cat}
+                        onClick={() => setActiveCategory(cat)}
+                        className={`px-4 py-1.5 rounded-full border cursor-pointer text-xs transition ${activeCategory === cat ? "bg-gradient-to-r from-purple-500 to-purple-600 text-white font-semibold" : "bg-white text-purple-600 border-purple-600"}`}>
+                            {cat}
+                        </button>
+                    ))}
+
+                </div>
+                <div className="p-5  w-full grid grid-cols-1 sm:grid-col-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                    {filteredItems.map((item, index) => (
+                        activeTabs === "news" ? (
+                            <NewsCard key={index}  item={item}/>
+                        ) : (
+                            <EventsCard key={index} item={item} />
+                        )
+                    ))}
+                </div>
+            </div>
             <div className="w-full p-10 bg-gradient-to-r from-slate-50 to-purple-50 flex flex-col items-center">
                 <h4 className="font-semibold text-xs text-spacing-5 mt-5 text-purple-600 mb-3">
                     COMING SOON

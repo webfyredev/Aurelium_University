@@ -77,7 +77,15 @@ export default function Footer(){
                                 // whileHover={{x : 10}}
                                 // transition={{duration : 0.2}}
                                 className="w-full text-[13px] text-gray-600 hover:font-semibold hover:text-purple-500 cursor-pointer transition-all duration-300">
-                                <Link href="/">
+                                <Link href="/ns_events">
+                                    News & Events
+                                </Link>
+                            </li>
+                            <li 
+                                // whileHover={{x : 10}}
+                                // transition={{duration : 0.2}}
+                                className="w-full text-[13px] text-gray-600 hover:font-semibold hover:text-purple-500 cursor-pointer transition-all duration-300">
+                                <Link href="/contacts">
                                     Contacts
                                 </Link>
                             </li>
@@ -93,7 +101,7 @@ export default function Footer(){
                                 // transition={{duration : 0.2}}
                                 className="w-full text-[13px] text-gray-600 hover:font-semibold hover:text-purple-500 cursor-pointer transition-all duration-300">
                                 <Link href="/">
-                                    Programs & Departments
+                                    Academic Calender
                                 </Link>
                             </li>
                             <li 
@@ -101,14 +109,14 @@ export default function Footer(){
                                 // transition={{duration : 0.2}}
                                 className="w-full text-[13px] text-gray-600 hover:font-semibold hover:text-purple-500 cursor-pointer transition-all duration-300">
                                 <Link href="/">
-                                    Faculty
+                                    Library
                                 </Link>
                             </li>
                             <li 
                                 // whileHover={{x : 10}}
                                 // transition={{duration : 0.2}}
                                 className="w-full text-[13px] text-gray-600 hover:font-semibold hover:text-purple-500 cursor-pointer transition-all duration-300">
-                                <Link href="/">
+                                <Link href="/gallery">
                                     Gallery
                                 </Link>
                             </li>
@@ -116,24 +124,32 @@ export default function Footer(){
                                 // whileHover={{x : 10}}
                                 // transition={{duration : 0.2}}
                                 className="w-full text-[13px] text-gray-600 hover:font-semibold hover:text-purple-500 cursor-pointer transition-all duration-300">
-                                <Link href="/">
-                                    News & Events
+                                <Link href="/ns_events">
+                                    E-Learning Platform
                                 </Link>
                             </li>
                             <li 
                                 // whileHover={{x : 10}}
                                 // transition={{duration : 0.2}}
                                 className="w-full text-[13px] text-gray-600 hover:font-semibold hover:text-purple-500 cursor-pointer transition-all duration-300">
-                                <Link href="/">
-                                    Contacts
-                                </Link>
+                                <Link href="#">
+                                Scholarships
+                            </Link>
+                            </li>
+                            <li 
+                                // whileHover={{x : 10}}
+                                // transition={{duration : 0.2}}
+                                className="w-full text-[13px] text-gray-600 hover:font-semibold hover:text-purple-500 cursor-pointer transition-all duration-300">
+                                <Link href="#">
+                                Campus Maps
+                            </Link>
                             </li>
                             <li 
                                 // whileHover={{x : 10}}
                                 // transition={{duration : 0.2}}
                                 className="w-full text-[13px] text-gray-600 hover:font-semibold hover:text-purple-500 cursor-pointer transition-all duration-300">
                                 <Link href="/">
-                                    Login
+                                    Portal
                                 </Link>
                             </li>
 
@@ -161,8 +177,8 @@ export default function Footer(){
                             <li 
                                 className="w-full text-[13px] text-gray-600 hover:font-semibold hover:text-purple-500 cursor-pointer transition-all duration-300 flex items-center space-x-1.5">
                                     <FaEnvelope/>
-                                    <a href="mailto:aurelium@gmail.com">
-                                        aurelium@gmail.com
+                                    <a href="mailto:aurelium@university.edu">
+                                        aurelium@university.edu
                                     </a>
                             </li>
                             
@@ -171,7 +187,7 @@ export default function Footer(){
                 </div>
                 <div className="w-[85%] border-1 border-purple-100 mt-3"></div>
                 <div className="w-full mt-2 p-3 flex items-center justify-between">
-                    <p className="text-[9px] md:text-xs font-semibold text-gray-500">&copy; {dates} <a href="mailto:aureliumuniversity@gmail.com" className="hover:text-purple-500">Aurelium University</a>. All right reserved</p>
+                    <p className="text-[9px] md:text-xs font-semibold text-purple-950">&copy; {dates} <a href="mailto:aureliumuniversity@gmail.com" className="hover:text-purple-500">Aurelium University</a>. All right reserved</p>
                     <p className="text-[9px] md:text-xs text-gray-500">
                         Developed by <a href="mailto:oyinwebworks@gmail.com" className="hover:text-purple-500">oyinwebworks@gmail.com</a>
                     </p>

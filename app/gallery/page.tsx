@@ -13,7 +13,10 @@ export default function Campus_Gallery(){
             <Header 
             image = ''
             title= 'Campus Gallery'
-            text = 'Experience Life at Excellence University through our vibrant photo collection'/>
+            text = 'Experience Life at Aurelium University through our vibrant photo collection'/>
+            <div className="w-full p-10 border-1 flex flex-col items-center">
+
+            </div>
         </>
     );
 }

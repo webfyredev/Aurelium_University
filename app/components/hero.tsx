@@ -23,7 +23,7 @@ export default function Hero(){
 
     const titleRef = useRef<HTMLHeadingElement | null >(null);
     useEffect(() =>{
-        // if(titleRef.current && isActive)
+        // if(titleRef.current && isActive) 
     });
     useEffect(() => {
         titleRefs.current = titleRefs.current.slice(0, slidesCount);

@@ -49,10 +49,12 @@ export default function DefaultNavBar(){
                             </Link>
                         </li>
                         <li className="px-4 py-2 text-[13px] font-semibold cursor-pointer transition-all duration-300 hover:bg-purple-100 rounded-sm">
-                            Contact
+                            <Link href="/contacts">
+                                Contact
+                            </Link>
                         </li>
                         <li className="px-4 py-2 text-[13px] font-semibold cursor-pointer transition-all duration-300 hover:bg-purple-100 rounded-sm">
-                            Login
+                            Portal
                         </li>
                         <button className={`px-6 py-2.5 text-[13px] font-semibold cursor-pointer transition-all duration-300 bg-purple-800 rounded-sm text-white`}>
                             Apply Now

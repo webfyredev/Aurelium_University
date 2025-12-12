@@ -76,14 +76,14 @@ export default function About_Us(){
                 <div className="w-20 my-3 border-2 border-purple-700"></div>
                 <div className="w-full lg:p-5 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-3">
                     {milestone.map((data) => (
-                        <div key={data.id} className=" bg-white mb-2 lg:mb-3 p-5 rounded-xl shadow-sm flex flex-col items-left space-y-1.5 hover:shadow-lg cursor-pointer hover:border-1 hover:border-purple-500 transition-all duration-300">
+                        <div key={data.id} className=" bg-white mb-2 lg:mb-3 p-5 rounded-xl shadow-sm flex flex-col items-center space-y-1.5 hover:shadow-lg cursor-pointer hover:border-1 hover:border-purple-500 transition-all duration-300">
                         <h3 className="font-bold text-lg bg-gradient-to-r from-purple-500 to-purple-600 text-transparent bg-clip-text">
                             {data.year}
                         </h3>
                         <p className="font-bold text-md text-purple-950">
                             {data.title}
                         </p>
-                        <p className="text-[13px]">
+                        <p className="text-[13px] text-center">
                             {data.text}
                         </p>
                         </div>

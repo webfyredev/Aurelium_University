@@ -50,7 +50,7 @@ export default function Academics(){
                         </button>
                     ))}
                 </div>
-                <div className="w-full lg:p-5 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                <div className="w-full lg:p-5 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5 lg:mt-0">
                     {paginatedPrograms.map((program, index) => (
                         <div key={index} className="rounded-lg shadow-sm overflow-hidden hover:shadow-xl cursor-pointer transition mb-3 group">
                             <img src={program.image} alt={program.name} className="w-full h-48 object-cover rounded-t-md group-hover:scale-105 transition duration-300"/>

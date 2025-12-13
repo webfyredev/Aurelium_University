@@ -103,7 +103,7 @@ export default function Research(){
                 </p>
                 <div className="w-full lg:w-[85%] lg:p-5 mt-5 border-white grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                     {research_partners.map((data, index) => (
-                        <div key={index} className="p-8 lg:p-5 rounded-xl bg-white flex flex-col items-center">
+                        <div key={index} className="p-8 rounded-xl bg-white flex flex-col items-center">
                             <data.icon  className="w-12 h-12 p-3 rounded-md bg-purple-100 text-purple-500"/>
                             <h3 className="mt-2.5 font-semibold text-purple-950">
                                 {data.title}

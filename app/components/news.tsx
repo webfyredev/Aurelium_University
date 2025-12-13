@@ -13,7 +13,7 @@ import { FaArrowRight, FaCalendar, FaClock, FaMapMarkerAlt } from "react-icons/f
 export default function NewsEvents(){
     return(
         <>
-            <div className="w-full p-5 lg:p-10 bg-gradient-to-r from-slate-50 to-purple-50 flex flex-col items-center border-1 border-red-500">
+            <div className="w-full p-5 lg:p-10 bg-gradient-to-r from-slate-50 to-purple-50 flex flex-col items-center">
                 <h4 className="font-semibold text-xs text-spacing-5 mt-5 text-purple-600">
                 LATEST UPDATES
                 </h4>

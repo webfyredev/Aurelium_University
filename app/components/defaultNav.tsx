@@ -6,9 +6,9 @@ export default function DefaultNavBar(){
         <>
             <nav className={`w-full fixed top-0 left-0 z-50 transition-all duration-300 bg-white shadow-md text-white font-semibold top-0`}>
                 <div className="w-full px-6 py-3 flex items-center justify-between cursor-pointer">
-                    <div className={`w-auto space-x-2 flex items-center font-bold text-xl bg-gradient-to-r from-purple-500 to-purple-600 text-transparent bg-clip-text `}>
-                        <img src="/logo.png" alt="Aurelium Logo" className="w-10 h-10 rounded-sm" />
-                        <Link href="/">
+                    <div className={`w-auto space-x-2 flex items-center justify-center font-bold text-xl bg-gradient-to-r from-purple-500 to-purple-600 text-transparent bg-clip-text`}>
+                        <img src="/nav_logo.png" alt="Aurelium Logo" className="w-10 h-10 rounded-sm mt-[-2]" />
+                        <Link href="/" className="ml-[-13px]">
                             <h3>Aurelium University</h3>
                         </Link>
                     </div>

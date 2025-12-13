@@ -10,9 +10,9 @@ export default function Footer(){
             <footer className="w-full flex flex-col items-center bg-gradient-to-r from-slate-50 to-purple-50">
                 <div className="w-full grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 p-5 gap-5">
                     <div className="flex flex-col space-y-4">
-                        <div className="flex space-x-2 items-center">
-                            <img src="/logo.png" className="w-10 h-10 rounded-md" />
-                            <h3 className="text-xl font-bold bg-gradient-to-r from-purple-500 to-purple-600 text-transparent bg-clip-text">
+                        <div className="flex items-center">
+                            <img src="/nav_logo.png" className="w-10 h-10 rounded-md mt-[-1.5] ml-[-12px] object-cover" />
+                            <h3 className="text-xl font-bold bg-gradient-to-r from-purple-500 to-purple-600 text-transparent bg-clip-text ml-[-6px]">
                                 Aurelium University
                             </h3>
                         </div>

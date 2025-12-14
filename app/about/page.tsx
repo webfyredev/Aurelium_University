@@ -19,7 +19,7 @@ export default function About_Us(){
         <>
             <DefaultNavBar />
             <Header 
-            image = '/header/abouth.webp'
+            image = '/header/abouts.webp'
             title = 'Our Story'
             text = "Building tomorrow's leaders since 2000"/>
             <div className="w-full lg:flex lg:flex-row flex flex-col lg:space-x-10 p-5 lg:p-10">

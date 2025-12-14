@@ -4,7 +4,7 @@ export default function NewsCard({ item } : any){
     return(
         <>
             <div className="flex flex-col rounded-xl overflow-hidden shadow-lg relative hover:shadow-xl transition">
-                <img src={item.image} alt={item.title} className="w-full h-48 object-cover rounded-t-xl  hover:scale-105 transition duration-300 " />
+                <img src={item.image} alt={item.title} className="w-full h-48 object-cover rounded-t-xl transition duration-300 " />
                 <div className="absolute top-0 left-0 w-full h-48 z-1 rounded-t-xl inset-0 bg-black/15 hover:bg-black/0 transition duration-300 cursor-pointer group">
                     <p className="absolute right-2 text-[10px] top-4 font-semibold text-white bg-gradient-to-r from-purple-500 to-purple-600 px-2 py-1 rounded-xl group-hover:hidden transition duration-300">{item.category}</p>
                 </div>

@@ -26,8 +26,8 @@ export default function Campus_Gallery(){
             image = '/header/gals.webp'
             title= 'Campus Gallery'
             text = 'Experience Life at Aurelium University through our vibrant photo collection'/>
-            <div className="w-full p-10 flex flex-col items-center">
-                <div className="w-[75%] p-3 flex items-center justify-center gap-3 mb-3">
+            <div className="w-full md:p-5 lg:p-10 flex flex-col items-center">
+                <div className="w-[75%] p-3 hidden md:flex items-center justify-center gap-3 mb-3">
                     {gal_cats.map((cats, index) => (
                         <button key={index}
                         onClick={() => {
@@ -45,7 +45,7 @@ export default function Campus_Gallery(){
                 <div className="w-full mt-3 p-5 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
                     {paginatedgals.map((gallery, index) => (
                         <div key={index} className="shadow-sm hover:shadow-xl rounded-lg cursor-pointer transition relative group overflow-hidden">
-                            <img src={gallery.image} alt={gallery.title} className="w-full h-52 object-cover rounded-lg group-hover:scale-105 transition-all duration-300" />
+                            <img src={gallery.image} alt={gallery.title} className="w-full h-64 md:h-52 object-cover rounded-lg group-hover:scale-105 transition-all duration-300" />
                             <div className="absolute w-full h-full top-0 left-0 rounded-lg inset-0 hover:bg-black/30 transition">
                                 <div className="bottom-1.5 absolute p-3 space-y-1 hidden group-hover:flex flex-col transition-all">
                                     <h3 className="w-20 px-3 py-1 text-[10px] flex items-center justify-center bg-gradient-to-r from-purple-500 to-purple-600 font-semibold text-white rounded-xl">{gallery.tag}</h3>
@@ -72,7 +72,7 @@ export default function Campus_Gallery(){
                     </div>
                 )}
             </div>
-            <div className="p-10 bg-gradient-to-r from-slate-50 to-purple-50 flex flex-col items-center">
+            <div className="p-5 lg:p-10 bg-gradient-to-r from-slate-50 to-purple-50 flex flex-col items-center mt-10 md:mt-5 lg:mt-0">
                 <h4 className="font-semibold text-xs text-spacing-5 text-purple-600 mb-3">
                     VIRTUAL EXPERIENCE
                 </h4>
@@ -83,9 +83,9 @@ export default function Campus_Gallery(){
                 <div className="mt-5 w-full lg:w-[90%] lg:p-5">
                     <video src="" controls className="w-full h-75 md:h-90 lg:h-120 border-1 rounded-lg object-cover shadow-lg"></video>
                 </div>
-                <div className="w-[90%] p-5 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 gap-5">
+                <div className="w-full lg:w-[90%] md:p-5 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 gap-5 mt-10 md:mt-0">
                     {tour_data.map((tour, index) => (
-                        <div key={index} className="px-5 py-8 rounded-xl flex flex-col items-center space-y-1 bg-white shadow-xl">
+                        <div key={index} className="w-full px-5 py-8 rounded-xl flex flex-col items-center space-y-1 bg-white shadow-xl">
                             <tour.icon  className="w-6 h-6 text-purple-500"/>
                             <h3 className="text-sm font-semibold text-purple-950">{tour.title}</h3>
                             <p className="text-xs text-gray-500">{tour.text}</p>

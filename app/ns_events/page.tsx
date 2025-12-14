@@ -64,7 +64,7 @@ export default function News_Events(){
                 <div className="w-20 my-3 border-2 border-purple-700"></div>
                 <div className="w-full lg:w-[90%] p-5 rounded-sm mt-5 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
                     {highlights.map((data, index) => (
-                        <div key={index} className="flex flex-col items-center p-5 rounded-xl shadow-sm bg-white">
+                        <div key={index} className="flex flex-col items-center p-5 rounded-xl shadow-sm hover:shadow-lg bg-white transition">
                             <data.icon  className="w-12 h-12 p-3.5 rounded-xl bg-gradient-to-r from-purple-500 to-purple-600 text-white"/>
                             <p className="text-xs font-semibold text-purple-500 mt-3">{data.date}</p>
                             <h3 className="font-semibold text-purple-950 mt-2">{data.title}</h3>
@@ -107,7 +107,7 @@ export default function News_Events(){
                 </p>
                 <div className="w-full lg:w-[90%] p-5 mt-5 rounded-sm grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
                     {social_media.map((media, index) => (
-                        <div key={index} className="p-5 rounded-xl flex flex-col items-center space-y-2 bg-white shadow-sm">
+                        <div key={index} className="p-5 rounded-xl flex flex-col items-center space-y-2 bg-white shadow-sm hover:shadow-lg transition">
                             <media.icon  className="w-12 h-12 border-1 p-3 rounded-full bg-gradient-to-r from-purple-500 to-purple-600 text-white"/>
                             <p className="font-semibold text-purple-950 text-sm">{media.name}</p>
                             <h3 className="text-lg font-bold text-purple-500">{media.value}</h3>

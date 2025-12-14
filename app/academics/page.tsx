@@ -1,19 +1,30 @@
 "use client";
 import { FaArrowRight, FaAward, FaCalendar, FaCheckCircle, FaClock, FaFlask, FaUniversity } from "react-icons/fa";
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import DefaultNavBar from "../components/defaultNav";
 import FooterCTA from "../components/footer_Cta";
 import Header from "../components/header";
 import { Metadata } from "next";
 import { academic, service2, support_service, programs, academic_dates, research_centers } from "./academics";
 import Alumni_Stories from "../components/alumni";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const metadata : Metadata = {
     title : "Aurelium | Academics"
 }
 
+
 const faculties = ['All', 'Science', 'Engineering', 'Law', 'Arts', 'Social Sciences', 'Management Sciences', 'Education', 'Health Sciences', 'Agriculture', 'Environmental Sciences']
 export default function Academics(){
+    const scrollRef = useRef<HTMLDivElement | null >(null);
+    const scroll = (direction: "left" | "right") => {
+        if(!scrollRef.current) return;
+        const scrollAmount = 200;
+        scrollRef.current.scrollBy({
+            left : direction === "left" ? -scrollAmount : scrollAmount,
+            behavior : "smooth"
+        });
+    };
     const [selectedFaculty, setSelectedFaculty] = useState("All");
     const [currentPage, setCurrentPage] = useState(1);
     const programsPage = 12;
@@ -38,7 +49,44 @@ export default function Academics(){
                     Explore Academic Programs
                 </h2>
                 <div className="w-20 my-3 border-2 border-purple-700"></div>
-                <div className="p-5 w-full hidden lg:flex justify-center gap-3 mb-3 items-center">
+                <div className="relative w-full max-w-6xl mt-6 mb-4">
+                    <button
+                        onClick={() =>scroll("left")}
+                        className="cursor-pointer hidden lg:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-white shadow-md items-center justify-center text-purple-600 hover:bg-purple-600 hover:text-white transition"
+                    >
+                        <FiChevronLeft />
+                    </button>
+                     <div
+                            ref={scrollRef}
+                            className="flex gap-3 overflow-x-auto scroll-smooth px-10 
+                                    scrollbar-hide"
+                        >
+                            {faculties.map((faculty) => (
+                            <button
+                                key={faculty}
+                                onClick={() => {
+                                setSelectedFaculty(faculty);
+                                setCurrentPage(1);
+                                }}
+                                className={`cursor-pointer whitespace-nowrap px-4 py-2 text-xs rounded-full border font-semibold transition
+                                ${
+                                    selectedFaculty === faculty
+                                    ? "bg-gradient-to-r from-purple-500 to-purple-600 text-white border-transparent"
+                                    : "bg-white text-purple-600 border-purple-600 hover:bg-purple-50"
+                                }`}
+                            >
+                                {faculty}
+                            </button>
+                            ))}
+                        </div>
+                    <button
+                        onClick={() =>scroll("right")}
+                        className="cursor-pointer hidden lg:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-white shadow-md items-center justify-center text-purple-600 hover:bg-purple-600 hover:text-white transition"
+                    >
+                        <FiChevronRight />
+                    </button>
+                </div>
+                {/* <div className="p-5 w-full hidden lg:flex justify-center gap-3 mb-3 items-center">
                     {faculties.map((faculty, index) => (
                         <button key={index} 
                         className={`px-4 py-2 text-[11px] rounded-md border font-semibold cursor-pointer ${selectedFaculty === faculty ? "bg-gradient-to-r from-purple-500 to-purple-600 text-white" : "bg-white text-purple-600 border-1 border-purple-600" }`} 
@@ -49,7 +97,7 @@ export default function Academics(){
                         {faculty}
                         </button>
                     ))}
-                </div>
+                </div> */}
                 <div className="w-full lg:p-5 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5 lg:mt-0">
                     {paginatedPrograms.map((program, index) => (
                         <div key={index} className="rounded-lg shadow-sm overflow-hidden hover:shadow-xl cursor-pointer transition mb-3 group">

@@ -133,9 +133,9 @@ export default function About_Us(){
                             <div className="absolute w-12 h-12 top-52 left-[85%] rounded-full bg-gradient-to-r from-purple-500 to-purple-600 flex items-center justify-center cursor-pointer">
                                 <FaLinkedinIn  className="text-white"/>
                             </div>
-                            <h3 className="font-bold text-md mt-3">
+                            <a href="#" className="font-bold text-md mt-3 hover:text-purple-700 transition duration-300">
                                 {team.name}
-                            </h3>
+                            </a>
                             <p className="text-xs italic bg-gradient-to-r from-purple-500 to-purple-600 bg-clip-text text-transparent font-semibold">
                                 {team.position}
                             </p>

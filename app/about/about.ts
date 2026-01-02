@@ -105,7 +105,7 @@ export const values: campus[] = [
         id : 3,
         icon : FaHandshake,
         title : 'Integrity',
-        text : 'Upholdingthe highest ethical standards in all our endeavours'
+        text : 'Upholding the highest ethical standards in all our endeavours'
     },
     {
         id : 4,

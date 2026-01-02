@@ -15,7 +15,7 @@ export default function Admissioons(){
             <Header 
             image="/header/admission.webp"
             title = "Join Our Community"
-            text="Start your journey to excellence. Apply todayand transform your future."
+            text="Start your journey to excellence. Apply today and transform your future."
             />
             <div className="w-full p-5 lg:p-10 flex flex-col items-center">
                 <h4 className="font-semibold text-xs text-spacing-5 mt-5 text-purple-600 mb-3">

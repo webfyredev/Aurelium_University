@@ -25,10 +25,10 @@ export default function Contacts(){
                         Whether you're a prospective student, parent, or partner, we'd love to hear from you. Our team is ready to assist you with many questions or concerns
                     </p>
                     <div className="w-full mt-5 flex flex-col space-y-3.5">
-                        {contacts.map((data) => {
+                        {contacts.map((data, index) => {
                             if (data.type === 'text'){
                                 return(
-                                    <div className="px-3 py-4 rounded-md hover:rounded-xl flex space-x-2.5 shadow-md hover:shadow-lg transition">
+                                    <div key={index} className="px-3 py-4 rounded-md hover:rounded-xl flex space-x-2.5 shadow-md hover:shadow-lg transition">
                                         <data.icon  className="w-10 h-10 p-3.5 rounded-md bg-purple-100 text-purple-500"/>
                                         <div className="flex flex-col space-y-1">
                                             <h3 className="font-semibold text-purple-950 text-sm">{data.title}</h3>
@@ -39,7 +39,7 @@ export default function Contacts(){
                                 )
                             }else if(data.type === "link"){
                                 return (
-                                    <div className="px-3 py-4 rounded-md hover:rounded-xl flex space-x-2.5 shadow-md hover:shadow-lg transition">
+                                    <div key={index} className="px-3 py-4 rounded-md hover:rounded-xl flex space-x-2.5 shadow-md hover:shadow-lg transition">
                                         <data.icon  className="w-10 h-10 p-3.5 rounded-md bg-purple-100 text-purple-500"/>
                                         <div className="flex flex-col space-y-1">
                                             <h3 className="font-semibold text-purple-950 text-sm">{data.title}</h3>
@@ -51,7 +51,7 @@ export default function Contacts(){
                                 )
                             } else if(data.type === "phone"){
                                 return(
-                                    <div className="px-3 py-4 rounded-md hover:rounded-xl flex space-x-2.5 shadow-md hover:shadow-lg transition">
+                                    <div key={index} className="px-3 py-4 rounded-md hover:rounded-xl flex space-x-2.5 shadow-md hover:shadow-lg transition">
                                         <data.icon  className="w-10 h-10 p-3.5 rounded-md bg-purple-100 text-purple-500"/>
                                         <div className="flex flex-col space-y-1">
                                             <h3 className="font-semibold text-purple-950 text-sm">{data.title}</h3>

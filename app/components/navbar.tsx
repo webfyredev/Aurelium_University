@@ -65,7 +65,9 @@ export default function NavBar(){
                             </Link>
                         </li>
                         <li className="px-4 py-2 text-[13px] font-semibold cursor-pointer transition-all duration-300 hover:bg-purple-200 hover:text-purple-400 rounded-sm">
-                            Portal
+                            <Link href="/portal">
+                                Portal
+                            </Link>
                         </li>
                         <button className={`px-6 py-2.5 text-[13px] font-semibold cursor-pointer transition-all duration-300 bg-purple-800 rounded-sm ${scrolled ? 'text-white': 'text-white'}`}>
                             Apply Now

@@ -5,8 +5,8 @@ import { researchAreas } from "../research/research";
 export default function ResearchSlider(){
     return(
         <>
-            <div className="w-full flex flex-col items-center p-10">
-                <h4 className="font-semibold text-xs text-spacing-5 mt-5 text-purple-600 mb-3">
+            <div className="w-full flex flex-col items-center p-3 lg:p-10">
+                <h4 className="font-semibold text-xs text-spacing-5 mt-10 lg:mt-5 text-purple-600 mb-3">
                     RESEARCH AREAS
                 </h4>
                 <h2 className="text-2xl md:text-3xl font-bold text-purple-950">

@@ -20,7 +20,7 @@ export default function Research(){
             title = 'Research & Innovation'
             text = "Pioneering discoveries that shape the future of humanity"/>
             <div className="w-full flex flex-col items-center p-5">
-                <div className="w-full lg:w-[90%] lg:p-5 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-5">
+                <div className="w-full lg:w-[90%] lg:p-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-5">
                     {research_card.map((data, index) => (
                         <div key={index} className="p-4 lg:p-5 flex flex-col items-center rounded-xl shadow-sm bg-purple-50 cursor-pointer">
                             <data.icon  className="w-13 h-13 p-2.5 text-purple-500"/>

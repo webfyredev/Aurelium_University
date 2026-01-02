@@ -28,10 +28,10 @@ export default function Home() {
     <NavBar />
     <Hero />
     <div className="w-full p-5 lg:flex lg:flex-row flex flex-col space-x-5 mt-10">
-    <img  src="/about/about1.webp" alt="About_Us" className="w-full lg:w-1/2 lg:h-95 h-100 object-cover rounded-md hover:scale-102 transition duration-300" />
+    <img  src="/about/about1.webp" alt="About_Us" className="w-full lg:w-1/2 lg:h-95 md:h-100 object-cover rounded-md hover:scale-102 transition duration-300" />
     <div className="flex flex-col lg:p-5 w-full lg:w-1/2">
     <h2 className="font-bold text-purple-950 text-xl md:text-3xl mt-5 lg:mt-0">Welcome To Aurelium University</h2>
-    <p className="font-semibold mt-5 text-xl">
+    <p className="font-semibold mt-5 text-xl bg-gradient-to-r from-purple-500 to-purple-600 bg-clip-text text-transparent">
       Our Vission
     </p>
     <p className="text-sm my-1">
@@ -39,7 +39,7 @@ export default function Home() {
       inspiring students and faculty to advance knowledge, drive positive 
       change, and shape a brighter future for society.
     </p>
-    <p className="font-semibold mt-5 text-xl">
+    <p className="font-semibold mt-5 text-xl bg-gradient-to-r from-purple-500 to-purple-600 bg-clip-text text-transparent">
       Our Mission
     </p>
     <p className="text-sm my-1">

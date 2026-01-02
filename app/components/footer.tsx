@@ -148,7 +148,7 @@ export default function Footer(){
                                 // whileHover={{x : 10}}
                                 // transition={{duration : 0.2}}
                                 className="w-full text-[13px] text-gray-600 hover:font-semibold hover:text-purple-500 cursor-pointer transition-all duration-300">
-                                <Link href="/">
+                                <Link href="/portal">
                                     Portal
                                 </Link>
                             </li>

@@ -6,6 +6,8 @@ import Header from "../components/header";
 import { Metadata } from "next";
 import { gallery_data, tour_data } from "./gallery";
 import FooterCTA from "../components/footer_Cta";
+import { borderFadeShow, scrollUpEffect } from "../animations/framer";
+import { motion } from 'framer-motion'
 
 const metadata : Metadata = {
     title : "Aurelium | Gallery"
@@ -44,17 +46,21 @@ export default function Campus_Gallery(){
                 </div>
                 <div className="w-full mt-3 p-5 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
                     {paginatedgals.map((gallery, index) => (
-                        <div key={index} className="shadow-sm hover:shadow-xl rounded-lg cursor-pointer transition relative group overflow-hidden">
+                        <motion.div 
+                            {...scrollUpEffect}
+                            key={index} className="shadow-sm hover:shadow-xl rounded-lg cursor-pointer transition relative group overflow-hidden">
                             <img src={gallery.image} alt={gallery.title} className="w-full h-64 md:h-52 object-cover rounded-lg group-hover:scale-105 transition-all duration-300" />
                             <div className="absolute w-full h-full top-0 left-0 rounded-lg inset-0 hover:bg-black/30 transition">
-                                <div className="bottom-1.5 absolute p-3 space-y-1 hidden group-hover:flex flex-col transition-all">
+                                <motion.div 
+                                    {...scrollUpEffect}
+                                    className="bottom-1.5 absolute p-3 space-y-1 hidden group-hover:flex flex-col transition-all">
                                     <h3 className="w-20 px-3 py-1 text-[10px] flex items-center justify-center bg-gradient-to-r from-purple-500 to-purple-600 font-semibold text-white rounded-xl">{gallery.tag}</h3>
                                     <p className="text-sm font-semibold text-white">{gallery.title}</p>
                                     <p className="text-[10px] text-white">{gallery.subText}</p>
-                                </div>
+                                </motion.div>
 
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
                 {totalPages > 1 && (
@@ -73,23 +79,29 @@ export default function Campus_Gallery(){
                 )}
             </div>
             <div className="p-5 lg:p-10 bg-gradient-to-r from-slate-50 to-purple-50 flex flex-col items-center mt-10 md:mt-5 lg:mt-0">
-                <h4 className="font-semibold text-xs text-spacing-5 text-purple-600 mb-3">
+                <motion.h4 
+                    {...borderFadeShow}
+                    className="font-semibold text-xs text-spacing-5 text-purple-600 mb-3">
                     VIRTUAL EXPERIENCE
-                </h4>
-                <h2 className="text-3xl font-bold text-purple-950">
+                </motion.h4>
+                <motion.h2 
+                    {...scrollUpEffect}
+                    className="text-3xl font-bold text-purple-950">
                     Campus Video Tour
-                </h2>
-                <div className="w-20 my-3 border-2 border-purple-700"></div>
+                </motion.h2>
+                <motion.div {...borderFadeShow} className="w-20 my-3 border-2 border-purple-700"></motion.div>
                 <div className="mt-5 w-full lg:w-[90%] lg:p-5">
                     <video src="" controls className="w-full h-75 md:h-90 lg:h-120 border-1 rounded-lg object-cover shadow-lg"></video>
                 </div>
                 <div className="w-full lg:w-[90%] md:p-5 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 gap-5 mt-10 md:mt-0">
                     {tour_data.map((tour, index) => (
-                        <div key={index} className="w-full px-5 py-8 rounded-xl flex flex-col items-center space-y-1 bg-white shadow-xl">
+                        <motion.div 
+                            {...scrollUpEffect}
+                            key={index} className="w-full px-5 py-8 rounded-xl flex flex-col items-center space-y-1 bg-white shadow-xl hover:scale-105 transition-all duration-300">
                             <tour.icon  className="w-6 h-6 text-purple-500"/>
                             <h3 className="text-sm font-semibold text-purple-950">{tour.title}</h3>
                             <p className="text-xs text-gray-500">{tour.text}</p>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
             </div>

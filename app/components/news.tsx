@@ -9,18 +9,22 @@ import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 import { newEvents, upcomingEvents } from "../pageData";
 import { FaArrowRight, FaCalendar, FaClock, FaMapMarkerAlt } from "react-icons/fa";
+import { motion } from 'framer-motion'
+import { borderFadeShow, scrollLeftEffects, scrollupDelayEffects, scrollUpEffect } from "../animations/framer";
 
 export default function NewsEvents(){
     return(
         <>
             <div className="w-full p-5 lg:p-10 bg-gradient-to-r from-slate-50 to-purple-50 flex flex-col items-center">
-                <h4 className="font-semibold text-xs text-spacing-5 mt-5 text-purple-600">
+                <motion.h4
+                    {...borderFadeShow} 
+                    className="font-semibold text-xs text-spacing-5 mt-5 text-purple-600">
                 LATEST UPDATES
-                </h4>
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mt-2 text-purple-900">
+                </motion.h4>
+                <motion.h2 {...scrollUpEffect} className="text-2xl md:text-3xl lg:text-4xl font-bold mt-2 text-purple-900">
                 News & Events
-                </h2>
-                <div className="w-20 mt-5 border-2 border-purple-700"></div>
+                </motion.h2>
+                <motion.div {...borderFadeShow} className="w-20 mt-5 border-2 border-purple-700"></motion.div>
                 <div className="w-full mt-5 lg:p-5 flex space-x-5">
                     <div className="w-full lg:w-[65%] rounded-md" id="slider">
                         <Swiper
@@ -64,7 +68,7 @@ export default function NewsEvents(){
                     </div>
                     <div className="w-[35%] hidden lg:flex flex-col rounded-md space-y-4">
                         {newEvents.slice(0,3).map((data, index) => (
-                            <div key={index} className="flex rounded-md shadow-sm bg-white overflow-hidden group">
+                            <motion.div {...scrollUpEffect} key={index} className="flex rounded-md shadow-sm bg-white overflow-hidden group">
                                 <img src={data.image} alt={data.title} className="w-[40%] h-28.5 rounded-l-md object-cover group-hover:scale-105 transition-transform duration-300" />
                                 <div className="h-full space-y-1.5 w-full p-2 rounded-r-md">
                                     <p className="mt-2 text-[13px] font-semibold bg-gradient-to-r from-purple-500 to-purple-600 bg-clip-text text-transparent">{data.tags}</p>
@@ -75,20 +79,26 @@ export default function NewsEvents(){
                                         <FaCalendar  className="w-2.5 h-2.5 mr-1"/> {data.date}
                                     </p>
                                 </div>
-                            </div>
+                            </motion.div>
                         ))}
                     </div>
                 </div>
                 <div className="w-full mt-10 p-5 flex flex-col items-center">
-                    <h2 className="font-bold text-2xl text-purple-950">
+                    <motion.h2 
+                        {...scrollUpEffect}
+                        className="font-bold text-2xl text-purple-950">
                         Upcoming Events
-                    </h2>
-                    <p className="w-85 md:w-150 text-sm text-center text-gray-600 mt-2">
+                    </motion.h2>
+                    <motion.p 
+                        {...scrollupDelayEffects}
+                        className="w-85 md:w-150 text-sm text-center text-gray-600 mt-2">
                         Mark your calender and join us for these exciting events
-                    </p>
+                    </motion.p>
                     <div className="w-full lg:w-[90%] md:p-5 mt-5 grid grid-cols-1 md:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
                         {upcomingEvents.map((events, index) => (
-                            <div key={index} className="bg-white p-5 cursor-pointer shadow-md rounded-md flex flex-col items-center">
+                            <motion.div 
+                                {...scrollLeftEffects}
+                                key={index} className="bg-white p-5 cursor-pointer shadow-md rounded-md flex flex-col items-center">
                                 <div className="w-12 h-12 rounded-lg bg-gradient-to-r from-purple-500 to-purple-600 flex flex-col items-center text-white">
                                     <p className="text-[9px] mt-1 font-semibold">{events.month}</p>
                                     <h3 className="text-lg font-semibold">
@@ -107,7 +117,7 @@ export default function NewsEvents(){
                                 <p className="flex items-center text-[10px] mt-0.5 text-gray-600">
                                     <FaMapMarkerAlt  className="w-2.5 h-2.5 mt mr-1"/> {events.time}
                                 </p>
-                            </div>
+                            </motion.div>
                         ))}
                     </div>
                 </div>

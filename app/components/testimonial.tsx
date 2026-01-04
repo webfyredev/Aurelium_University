@@ -2,20 +2,26 @@
 
 import { FaCheck, FaStar } from "react-icons/fa";
 import { testimonials } from "../pageData";
+import { borderFadeShow, scrollRightEffects, scrollUpEffect } from "../animations/framer";
+import { motion } from 'framer-motion'
 export default function Testimonials(){
     return(
         <>
             <div className="w-full p-5 lg:p-10 bg-purple-950 flex flex-col items-center">
-                <h4 className="font-semibold text-xs text-spacing-5 mt-5 text-purple-300">
+                <motion.h4 
+                    {...borderFadeShow}
+                    className="font-semibold text-xs text-spacing-5 mt-5 text-purple-300">
                     STUDENT VOICES
-                </h4>
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mt-2 text-white">
+                </motion.h4>
+                <motion.h2 
+                    {...scrollUpEffect}
+                    className="text-2xl md:text-3xl lg:text-4xl font-bold mt-2 text-white">
                     What our Community Says
-                </h2>
-                <div className="w-20 mt-5 border-2 border-purple-200"></div>
+                </motion.h2>
+                <motion.div {...borderFadeShow} className="w-20 mt-5 border-2 border-purple-200"></motion.div>
                 <div className="w-full lg:w-[90%] lg:p-5 mt-5 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                     {testimonials.map((test, index) => (
-                        <div key={index} className="p-5 rounded-md bg-white flex flex-col">
+                        <motion.div {...scrollRightEffects} key={index} className="p-5 rounded-md bg-white flex flex-col">
                             <div className="w-full flex space-x-2 items-center">
                                 <img src={test.image} className="w-12 h-12 object-cover rounded-full" />
                                 <div className="flex flex-col">
@@ -35,7 +41,7 @@ export default function Testimonials(){
                                 <FaCheck  className="border-1 w-3 h-3 p-0.5 rounded-full bg-green-300 text-white mr-0.5"/>
                                 Verified Student
                             </p>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
             </div>

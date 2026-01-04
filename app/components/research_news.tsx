@@ -10,10 +10,10 @@ export default function Latest_Research_News(){
         <>
             <div className="bg-white py-10 flex flex-col items-center">
                 <div className="flex items-center justify-between p-5 w-full">
-                    <h3 className="font-bold text-purple-950 text-xl">
+                    <h3 className="font-bold text-purple-950 text-xl hover:text-purple-500 transition-all duration-300">
                         Latest Research News
                     </h3>
-                    <a href="" className="font-semibold text-purple-950 text-sm flex items-center hover:text-purple-500 transition-transform duration-300">ALL NEWS <FaChevronRight  className="ml-1"/></a>
+                    <a href="" className="font-semibold text-purple-950 text-sm flex items-center hover:text-purple-500 transition-all duration-300">ALL NEWS <FaChevronRight  className="ml-1"/></a>
                 </div>
                 <div className="w-full p-5" id="research_news">
                     <Swiper

@@ -2,17 +2,25 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { researchAreas } from "../research/research";
+import { motion } from 'framer-motion'
+import { borderFadeShow, scrollUpEffect } from "../animations/framer";
 export default function ResearchSlider(){
     return(
         <>
             <div className="w-full flex flex-col items-center p-3 lg:p-10">
-                <h4 className="font-semibold text-xs text-spacing-5 mt-10 lg:mt-5 text-purple-600 mb-3">
+                <motion.h4 
+                    {...borderFadeShow}
+                    className="font-semibold text-xs text-spacing-5 mt-10 lg:mt-5 text-purple-600 mb-3">
                     RESEARCH AREAS
-                </h4>
-                <h2 className="text-2xl md:text-3xl font-bold text-purple-950">
+                </motion.h4>
+                <motion.h2 
+                    {...scrollUpEffect}
+                    className="text-2xl md:text-3xl font-bold text-purple-950">
                     Our Research Areas
-                </h2>
-                <div className="w-20 my-3 border-2 border-purple-700"></div>
+                </motion.h2>
+                <motion.div 
+                    {...borderFadeShow}
+                    className="w-20 my-3 border-2 border-purple-700"></motion.div>
                 <div className="w-full py-5 lg:py-10" id="research">
                     <Swiper
                         modules={[Navigation, Pagination, Autoplay]}

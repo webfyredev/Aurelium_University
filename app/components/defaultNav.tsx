@@ -13,7 +13,7 @@ export default function DefaultNavBar(){
                     <div className={`w-auto space-x-2 flex items-center justify-center font-bold text-xl bg-gradient-to-r from-purple-500 to-purple-600 text-transparent bg-clip-text`}>
                         <img src="/nav_logo.png" alt="Aurelium Logo" className="w-10 h-10 rounded-sm mt-[-2]" />
                         <Link href="/" className="ml-[-13px]">
-                            <h3>AU</h3>
+                            <h3>Aurelium University</h3>
                         </Link>
                     </div>
                     <ul className={`hidden lg:flex space-x-1.5 items-center text-purple-400`}>

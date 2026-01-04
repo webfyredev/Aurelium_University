@@ -2,17 +2,23 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { alumni_stories } from "../about/about";
+import { motion } from 'framer-motion'
+import { borderFadeShow, scrollUpEffect } from "../animations/framer";
 export default function Alumni_Stories(){
     return(
         <>
             <div className="w-full p-5 lg:p-10 flex flex-col items-center">
-                <h4 className="font-semibold text-xs text-spacing-5 mt-5 text-purple-600 mb-3">
+                <motion.h4 
+                    {...borderFadeShow}
+                    className="font-semibold text-xs text-spacing-5 mt-5 text-purple-600 mb-3">
                     ALUMNI IMPACTS
-                </h4>
-                <h2 className="text-2xl md:text-3xl font-bold text-purple-950">
+                </motion.h4>
+                <motion.h2 
+                    {...scrollUpEffect}
+                    className="text-2xl md:text-3xl font-bold text-purple-950">
                     Alumni Success Stories
-                </h2>
-                <div className="w-20 my-3 border-2 border-purple-700"></div>
+                </motion.h2>
+                <motion.div {...borderFadeShow} className="w-20 my-3 border-2 border-purple-700"></motion.div>
                 <div className="w-full lg:p-5" id="alumni">
                     <Swiper
                         modules={[Autoplay, Pagination, Navigation]}

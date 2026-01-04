@@ -1,3 +1,5 @@
+import {motion} from 'framer-motion'
+import { buttonHoverEffects, scrollRightEffects, scrollUpEffect } from '../animations/framer';
 export default function ResearchInnovation() {
   return (
     <section className="py-5 lg:py-10 bg-white">
@@ -5,9 +7,9 @@ export default function ResearchInnovation() {
         
         {/* Left Text Side */}
         <div>
-          <h2 className="text-3xl font-bold text-purple-950 mb-4">
+          <motion.h2 {...scrollUpEffect} className="text-3xl font-bold text-purple-950 mb-4">
             Research & Innovation
-          </h2>
+          </motion.h2>
 
           <p className="text-gray-600 mb-6 text-sm">
             Our university is committed to advancing knowledge through world-class 
@@ -30,7 +32,9 @@ export default function ResearchInnovation() {
           </ul>
 
           {/* Mini Stats Row */}
-          <div className="mt-8 grid grid-cols-3 gap-4 text-center">
+          <motion.div
+            {...scrollUpEffect} 
+            className="mt-8 grid grid-cols-3 gap-4 text-center">
             <div>
               <h3 className="text-2xl font-bold bg-gradient-to-r from-purple-500 to-purple-600 bg-clip-text text-transparent">12+</h3>
               <p className="text-gray-600 text-sm font-semibold text-purple-950">Research Centers</p>
@@ -43,15 +47,17 @@ export default function ResearchInnovation() {
               <h3 className="text-2xl font-bold bg-gradient-to-r from-purple-500 to-purple-600 bg-clip-text text-transparent">40+</h3>
               <p className="text-gray-600 text-sm font-semibold text-purple-950">Innovations</p>
             </div>
-          </div>
+          </motion.div>
 
-          <button className="mt-8 px-6 py-2.5 bg-gradient-to-r from-purple-500 to-purple-600 text-white text-sm font-semibold rounded-lg shadow hover:bg-blue-700 transition cursor-pointer">
+          <motion.button 
+            {...buttonHoverEffects}
+            className="mt-8 px-6 py-2.5 bg-gradient-to-r from-purple-500 to-purple-600 text-white text-sm font-semibold rounded-lg shadow hover:bg-blue-700 transition cursor-pointer">
             Explore Research
-          </button>
+          </motion.button>
         </div>
 
         {/* Right Image Side */}
-        <div className="relative group">
+        <motion.div {...scrollRightEffects} className="relative group">
           <img
             src="/research/inn1.jpg"
             className="rounded-2xl shadow-lg w-full h-100 object-cover group-hover:scale-105 transition-transform duration-500"
@@ -64,7 +70,7 @@ export default function ResearchInnovation() {
             className="absolute bottom-4 right-4 w-40 h-32 object-cover rounded-xl shadow-lg border-4 border-white"
             alt="Innovation team"
           />
-        </div>
+        </motion.div>
 
       </div>
     </section>

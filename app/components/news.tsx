@@ -3,6 +3,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, EffectFade } from "swiper/modules";
 import Image from "next/image";
+import Link from "next/link";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -15,7 +16,7 @@ import { borderFadeShow, scrollLeftEffects, scrollupDelayEffects, scrollUpEffect
 export default function NewsEvents(){
     return(
         <>
-            <div className="w-full p-5 lg:p-10 bg-gradient-to-r from-slate-50 to-purple-50 flex flex-col items-center">
+            <div className="w-full p-5 lg:p-10 bg-gradient-to-r from-slate-50 to-purple-50 flex flex-col items-center border">
                 <motion.h4
                     {...borderFadeShow} 
                     className="font-semibold text-xs text-spacing-5 mt-5 text-purple-600">
@@ -26,7 +27,7 @@ export default function NewsEvents(){
                 </motion.h2>
                 <motion.div {...borderFadeShow} className="w-20 mt-5 border-2 border-purple-700"></motion.div>
                 <div className="w-full mt-5 lg:p-5 flex space-x-5">
-                    <div className="w-full lg:w-[65%] rounded-md" id="slider">
+                    <div className="w-full lg:w-[65%] rounded-md h-full" id="slider">
                         <Swiper
                             modules={[Autoplay, Pagination, EffectFade]}
                             autoplay = {{delay : 4000}}
@@ -37,13 +38,13 @@ export default function NewsEvents(){
                         >
                             {newEvents.map((slide, index) => (
                                 <SwiperSlide key={index}>
-                                    <div className="relative h-[380px] w-full">
+                                    <div className="relative h-full md:h-[380px] w-full">
                                         <img
                                             src={slide.image}
                                             alt={slide.title}
-                                            className="w-full object-cover"
+                                            className="w-full h-full object-cover"
                                         />
-                                        <div className="absolute inset-0 bg-black/50"></div>
+                                        <div className="absolute inset-0 bg-black/50 h-full"></div>
                                         <div className="absolute bottom-10 left-6 right-6 text-white">
                                             <span className="bg-gradient-to-t from-purple-500 to-purple-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
                                                 {slide.tags}
@@ -56,8 +57,10 @@ export default function NewsEvents(){
                                             </p>
                                             <div className="flex justify-between mt-3 text-xs">
                                                 <span className="flex items-center text-xs font-semibold"> <FaCalendar className="w-2.5 h-2.5  mr-1"/> {slide.date}</span>
-                                                <p className="flex items-center text-purple-200 font-semibold">
-                                                    <a href="#">Read More </a><FaArrowRight  className="w-2 h-2 mt-0.5 ml-0.5"/>
+                                                <p className="flex items-center text-white font-semibold">
+                                                    <Link href="/ns_events" className="flex items-center">
+                                                        Read More <FaArrowRight  className="w-2 h-2 mt-0.5 ml-0.5"/>
+                                                    </Link>
                                                 </p>
                                             </div>
                                         </div>

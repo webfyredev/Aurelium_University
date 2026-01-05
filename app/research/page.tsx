@@ -9,11 +9,22 @@ import { Metadata } from "next";
 import Latest_Research_News from "../components/research_news";
 import { borderFadeShow, buttonHoverEffects, cardFadeEffects, scrollRightEffects, scrollupDelayEffects, scrollUpEffect } from "../animations/framer";
 import { motion } from 'framer-motion'
+import { usePathname, useSearchParams } from "next/navigation";
+import { useEffect } from "react";
 
 const metadata : Metadata = {
     title : "Aurelium | Research"
 }
 export default function Research(){
+    const pathname = usePathname();
+    const searchParams = useSearchParams();
+    useEffect(() => {
+        const hash = window.location.hash;
+        if(!hash) return;
+        const el = document.querySelector(hash)
+        if(el) el.scrollIntoView({behavior : "smooth"});
+    }, [pathname, searchParams]);
+
     return(
         <>
             <DefaultNavBar />
@@ -72,7 +83,7 @@ export default function Research(){
                     ))}
                 </div>
             </div>
-            <div className="w-full p-5 lg:p-10 flex flex-col items-center bg-gradient-to-r from-slate-50 to-purple-50">
+            <div className="w-full p-5 lg:p-10 flex flex-col items-center bg-gradient-to-r from-slate-50 to-purple-50" id="join_labs">
                 <motion.h4 {...borderFadeShow} className="font-semibold text-xs text-spacing-5 mt-5 text-purple-600 mb-3">
                     MAKING A DIFFERENCE
                 </motion.h4>

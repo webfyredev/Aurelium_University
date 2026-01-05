@@ -7,9 +7,10 @@ import Header from "../components/header";
 import { Metadata } from "next";
 import { academic, service2, support_service, programs, academic_dates, research_centers } from "./academics";
 import Alumni_Stories from "../components/alumni";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion } from 'framer-motion'
 import { borderFadeShow, scrollLeftEffects, scrollRightEffects, scrollupDelayEffects, scrollUpEffect } from "../animations/framer";
+import { usePathname, useSearchParams } from "next/navigation";
 
 const metadata : Metadata = {
     title : "Aurelium | Academics"
@@ -18,6 +19,16 @@ const metadata : Metadata = {
 
 const faculties = ['All', 'Science', 'Engineering', 'Law', 'Arts', 'Social Sciences', 'Management Sciences', 'Education', 'Health Sciences', 'Agriculture', 'Environmental Sciences']
 export default function Academics(){
+    const pathname = usePathname();
+    const searchParams = useSearchParams();
+    useEffect(() => {
+        const hash = window.location.hash;
+        if(!hash) return;
+        const el = document.querySelector(hash)
+        if(el) el.scrollIntoView({behavior : "smooth"});
+
+    }, [pathname, searchParams]);
+
     const scrollRef = useRef<HTMLDivElement | null >(null);
     const scroll = (direction: "left" | "right") => {
         if(!scrollRef.current) return;
@@ -43,7 +54,7 @@ export default function Academics(){
             image="/header/academics.webp"
             title = 'Academic Excellence'
             text = 'Discover world-class programs designed to shape future leaders and innovators'/>
-            <div className="w-full p-5 lg:p-10 flex flex-col items-center bg-white">
+            <div className="w-full p-5 lg:p-10 flex flex-col items-center bg-white" id="programs">
                 <motion.h4 
                     {...borderFadeShow}
                     className="font-semibold text-xs text-spacing-5 mt-5 text-purple-600 mb-3">
@@ -204,12 +215,12 @@ export default function Academics(){
                     {service2.map((data, index) => (
                         <motion.div 
                             {...scrollUpEffect}
-                            key={index} className="p-3 rounded-xl shadow-sm flex space-x-3 items-center bg-white hover:shadow-lg cursor-pointer transition-all duration-300">
+                            key={index} className="p-3 rounded-xl shadow-sm flex space-x-3 items-center bg-white hover:shadow-lg cursor-pointer transition-all duration-300 group">
                             <div className="w-11 h-11 rounded-md bg-gradient-to-r from-purple-500 to-purple-600 flex items-center justify-center">
                                 <FaCheckCircle  className="fill-white"/>
                             </div>
                             <div className="flex flex-col space-y-1.5">
-                                <h3 className="text-sm font-semibold text-purple-950">
+                                <h3 className="text-sm font-semibold text-purple-950 group-hover:text-purple-500 transition-all duration-300">
                                     {data.title}
                                 </h3>
                                 <p className="text-xs  mb-2">
@@ -221,7 +232,7 @@ export default function Academics(){
                 </div>
             </div>
             <Alumni_Stories />
-            <div className="w-full p-5 lg:p-10 bg-white lg:flex lg:flex-row flex flex-col space-x-10">
+            <div className="w-full p-5 lg:p-10 bg-white lg:flex lg:flex-row flex flex-col space-x-10" id="prog_catalog">
                 <div className="w-full lg:w-1/2 border-1 border-white lg:p-5 flex flex-col items-left">
                     <motion.h4 
                         {...borderFadeShow}
@@ -236,10 +247,10 @@ export default function Academics(){
                     <motion.div {...borderFadeShow} className="w-20 my-3 border-2 border-purple-500"></motion.div>
                     <div className="w-full space-y-4">
                     {academic_dates.map((dates) => (
-                        <motion.div {...scrollUpEffect} className="w-full lg:w-[95%] px-2 py-3 rounded-md shadow-sm flex space-x-2 cursor-pointer hover:shadow-lg transition">
+                        <motion.div {...scrollUpEffect} className="w-full lg:w-[95%] px-2 py-3 rounded-md shadow-sm flex space-x-2 cursor-pointer hover:shadow-lg transition group">
                             <FaCalendar  className="lg:w-10 lg:h-10 w-8 h-8 border-1 p-2 lg:p-3 rounded-md bg-gradient-to-r from-purple-500 to-purple-600 text-white"/>
                             <div className="flex flex-col space-y-0.5">
-                                <h3 className="font-semibold text-purple-950 text-sm">{dates.title}</h3>
+                                <h3 className="font-semibold text-purple-950 text-sm group-hover:text-purple-500 transition-all duration-300">{dates.title}</h3>
                                 <p className="text-[11px] text-purple-950">{dates.text}</p>
                             </div>
                         </motion.div>
@@ -276,6 +287,8 @@ export default function Academics(){
             text = 'Visit the research portal, program catalog, or contact an academic advisors.'
             btn_text1 = 'Programs Catalog'
             btn_text2="Contact Advisors"
+            btn_text1_link="/academics#prog_catalog"
+            btn_text2_link="/contacts#contact-sec"
             />
         </>
     );

@@ -3,6 +3,8 @@ import Link from "next/link";
 import { useState } from "react";
 import { FaGripLines } from "react-icons/fa";
 import { FaXmark } from "react-icons/fa6";
+import { motion} from 'framer-motion'
+import { scrollUpEffect } from "../animations/framer";
 
 export default function DefaultNavBar(){
     const [isOpen, setIsOpen] = useState(false);
@@ -73,6 +75,64 @@ export default function DefaultNavBar(){
                         {isOpen ? <FaXmark  size={20} /> : <FaGripLines size={20} />}
                     </button>
                 </div>
+                {isOpen && (
+                    <motion.div 
+                        {...scrollUpEffect}
+                        className={`lg:hidden border-1  p-5 w-full  bg-white  rounded-sm style-none`}>
+                        <ul className="flex flex-col space-y-2.5">
+                            <li className="px-4 py-2 text-[13px] font-semibold cursor-pointer transition-all duration-300 bg-purple-50/30 hover:bg-purple-100 text-purple-400 rounded-sm">
+                                    <Link href="/">
+                                        Home
+                                    </Link>
+                            </li>
+                            <li className="px-4 py-2 text-[13px] font-semibold cursor-pointer transition-all duration-300 bg-purple-50/30 hover:bg-purple-100 text-purple-400 rounded-sm">
+                                <Link href="/about">
+                                    About
+                                </Link>
+                            </li>
+                            <li className="px-4 py-2 text-[13px] font-semibold cursor-pointer transition-all duration-300 bg-purple-50/30 hover:bg-purple-100 text-purple-400 rounded-sm">
+                                <Link href="/academics">
+                                    Academics
+                                </Link>
+                            </li>
+                            <li className="px-4 py-2 text-[13px] font-semibold cursor-pointer transition-all duration-300 hover:bg-purple-100 bg-purple-50/30 text-purple-400 rounded-sm">
+                                <Link href="/admissions">
+                                    Admissions
+                                </Link>
+                            </li>
+                            <li className="px-4 py-2 text-[13px] font-semibold cursor-pointer transition-all duration-300 hover:bg-purple-100 bg-purple-50/30 text-purple-400 rounded-sm">
+                                
+                                <Link href="/research">
+                                    Research
+                                </Link>
+                            </li>
+                            <li className="px-4 py-2 text-[13px] font-semibold cursor-pointer transition-all duration-300 hover:bg-purple-100 bg-purple-50/30 text-purple-400 rounded-sm"> 
+                                <Link href="/ns_events">
+                                    News & Events 
+                                </Link>
+                            </li>
+                            <li className="px-4 py-2 text-[13px] font-semibold cursor-pointer transition-all duration-300 hover:bg-purple-100 bg-purple-50/30 text-purple-400 rounded-sm">
+                                <Link href="/gallery">
+                                    Gallery
+                                </Link>
+                            </li>
+                            <li className="px-4 py-2 text-[13px] font-semibold cursor-pointer transition-all duration-300 hover:bg-purple-100 bg-purple-50/30 text-purple-400 rounded-sm">
+                                <Link href="/contacts">
+                                    Contact
+                                </Link>
+                            </li>
+                            <li className="px-4 py-2 text-[13px] font-semibold cursor-pointer transition-all duration-300 hover:bg-purple-100 bg-purple-50/30 text-purple-400 rounded-sm">
+                                <Link href="/portal">
+                                    Portal
+                                </Link>
+                            </li>
+                            <button className={`px-6 py-2.5 text-[13px] font-semibold cursor-pointer transition-all duration-300 bg-purple-800 hover:bg-purple-500 rounded-sm `}>
+                                Apply Now
+                            </button>
+                        </ul>
+                        
+                    </motion.div>
+                )}
             </nav>
         </>
     );

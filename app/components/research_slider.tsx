@@ -7,7 +7,7 @@ import { borderFadeShow, scrollUpEffect } from "../animations/framer";
 export default function ResearchSlider(){
     return(
         <>
-            <div className="w-full flex flex-col items-center p-3 lg:p-10">
+            <div className="w-full flex flex-col items-center p-3 lg:p-10" id="research_details">
                 <motion.h4 
                     {...borderFadeShow}
                     className="font-semibold text-xs text-spacing-5 mt-10 lg:mt-5 text-purple-600 mb-3">

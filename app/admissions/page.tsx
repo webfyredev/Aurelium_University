@@ -8,11 +8,22 @@ import { Metadata } from "next";
 import Faqs from "../components/faqs";
 import { motion } from 'framer-motion'
 import { borderFadeShow, buttonHoverEffects, scrollRightEffects, scrollupDelayEffects, scrollUpEffect } from "../animations/framer";
+import { usePathname, useSearchParams } from "next/navigation";
+import { useEffect } from "react";
 
 const metadata : Metadata = {
     title : "Aurelium | Admissions"
 }
 export default function Admissioons(){
+    const pathname = usePathname();
+    const searchParams = useSearchParams();
+    useEffect(() => {
+        const hash = window.location.hash;
+        if(!hash) return;
+        const el = document.querySelector(hash);
+        if(el) el.scrollIntoView({behavior : "smooth"});
+
+    }, [pathname, searchParams]);
     return(
         <>
             <DefaultNavBar />
@@ -21,7 +32,7 @@ export default function Admissioons(){
             title = "Join Our Community"
             text="Start your journey to excellence. Apply today and transform your future."
             />
-            <div className="w-full p-5 lg:p-10 flex flex-col items-center">
+            <div className="w-full p-5 lg:p-10 flex flex-col items-center" id="apply_process">
                 <motion.h4 
                     {...borderFadeShow}
                     className="font-semibold text-xs text-spacing-5 mt-5 text-purple-600 mb-3">
@@ -36,7 +47,7 @@ export default function Admissioons(){
                 <div className="w-full lg:w-[90%] mt-5 lg:p-5 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
                     {apply.map((data) => (
                         <motion.div {...scrollUpEffect} key={data.id} className="px-5 py-8 lg:py-5 flex flex-col items-center group rounded-lg shadow-md hover:shadow-lg cursor-pointer hover:border-1 hover:border-purple-500 transition">
-                            <data.icon  className="w-13 h-13 p-4 rounded-full bg-purple-100 text-purple-500 group-hover:bg-gradient-to-r from-purple-500 to-purple-600 group-hover:text-white "/>
+                            <data.icon  className="w-13 h-13 p-4 rounded-full bg-purple-100 text-purple-500 group-hover:bg-gradient-to-r from-purple-500 to-purple-600 group-hover:text-white transition-all duration-300"/>
                             <h2 className="text-sm font-semibold text-purple-950 mt-2.5">
                                 {data.title}
                             </h2>
@@ -47,7 +58,7 @@ export default function Admissioons(){
                     ))}
                 </div>
             </div>
-            <div className="w-full p-5 lg:p-10 flex flex-col items-center bg-gradient-to-r from-slate-50 to-purple-50">
+            <div className="w-full p-5 lg:p-10 flex flex-col items-center bg-gradient-to-r from-slate-50 to-purple-50" id="programsdetails">
                 <motion.h4 {...borderFadeShow} className="font-semibold text-xs text-spacing-5 mt-5 text-purple-600 mb-3">
                     ADMISSION REQUIREMENTS
                 </motion.h4>

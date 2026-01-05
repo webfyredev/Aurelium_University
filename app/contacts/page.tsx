@@ -4,7 +4,18 @@ import DefaultNavBar from "../components/defaultNav";
 import Header from "../components/header";
 import { contacts, social_Icons } from "./contact";
 import Faqs from "../components/faqs";
+import { usePathname, useSearchParams } from "next/navigation";
+import { useEffect } from "react";
 export default function Contacts(){
+    const pathname = usePathname();
+    const searchParams = useSearchParams();
+    useEffect(() => {
+        const hash = window.location.hash;
+        if(!hash) return;
+        const el = document.querySelector(hash);
+        if(el) el.scrollIntoView({behavior : 'smooth'});
+    }, [pathname, searchParams]);
+
     return(
         <>
             <DefaultNavBar />
@@ -12,7 +23,7 @@ export default function Contacts(){
             image = "/header/contact3.webp"
             title = 'Get In Touch'
             text = "We're here to answer your questions and help you on your journey"/>
-            <div className="w-full py-5 lg:py-10 md:px-5 lg:px-15 lg:flex lg:flex-row flex flex-col">
+            <div className="w-full py-5 lg:py-10 md:px-5 lg:px-15 lg:flex lg:flex-row flex flex-col" id="contact-sec">
                 <div className="w-full lg:w-1/2 p-3 md:p-5 flex flex-col items-left">
                     <h4 className="font-semibold text-[11px] md:text-xs text-spacing-5 mt-5 text-purple-600 mb-3">
                         CONTACT INFORMATION

@@ -17,9 +17,9 @@ export default function NewsCard({ item } : any){
                     <a href="" className="text-sm font-semibold text-purple-950 group-hover:text-purple-500 transition">{item.title}</a>
                     <p className="text-[10.5px] text-gray-600">{item.text}</p>
                     <hr  className="text-gray-200 w-full mt-1"/>
-                    <div className="flex justify-between">
-                    <p className="flex items-center text-[9px] space-x-3 text-gray-500 font-semibold"><FaUser  className="text-gray-500 w-2.5 h-2.5 mr-2"/> {item.author}</p>
-                    <a href="" className="flex items-center text-[10px] space-x-3 font-semibold text-purple-950 group-hover:text-purple-500 transition mb-3">Read More <FaArrowRight  className="w-2 h-2 ml-1 mt-1"/></a>
+                    <div className="flex flex-row justify-between items-center mb-2">
+                        <p className="flex items-center text-[9px] space-x-3 text-gray-500 font-semibold"><FaUser  className="text-gray-500 w-2.5 h-2.5 mr-2"/> {item.author}</p>
+                        <a href="" className="flex items-center text-[10px] space-x-3 font-semibold text-purple-950 group-hover:text-purple-500 transition">Read More <FaArrowRight  className="w-2 h-2 ml-1 mt-0.5"/></a>
                     </div>
                 </div>
             </motion.div>

@@ -8,6 +8,8 @@ import { FaEnvelope, FaLinkedinIn } from "react-icons/fa";
 import Alumni_Stories from "../components/alumni";
 import { motion } from 'framer-motion'
 import { borderFadeShow, scrollLeftEffects, scrollRightEffects, scrollupDelayEffects, scrollUpEffect } from "../animations/framer";
+import { usePathname, useSearchParams } from "next/navigation";
+import { useEffect } from "react";
 
 const metadata: Metadata = {
   title: "Aurelium | About",
@@ -17,6 +19,16 @@ const metadata: Metadata = {
 
 };
 export default function About_Us(){
+    const pathname = usePathname();
+    const searchParams = useSearchParams();
+    useEffect(() => {
+        const hash = window.location.hash
+        if(!hash) return;
+        const el = document.querySelector(hash);
+        if(el) el.scrollIntoView({behavior : "smooth"});
+
+    }, [pathname, searchParams]);
+
     return(
         <>
             <DefaultNavBar />
@@ -24,7 +36,7 @@ export default function About_Us(){
             image = '/header/abouts.webp'
             title = 'Our Story'
             text = "Building tomorrow's leaders since 2000"/>
-            <div className="w-full lg:flex lg:flex-row flex flex-col lg:space-x-10 p-5 lg:p-10">
+            <div className="w-full lg:flex lg:flex-row flex flex-col lg:space-x-10 p-5 lg:p-10" id="aboutMore">
                 <div className="w-full lg:w-[45%] md:h-110 lg:h-140 lg:p-5">
                     <motion.h4 
                         {...borderFadeShow}
@@ -106,7 +118,7 @@ export default function About_Us(){
                 </div>
 
             </div>
-            <div className="w-full p-5 lg:p-15 bg-white flex flex-col items-center">
+            <div className="w-full p-5 lg:p-15 bg-white flex flex-col items-center" id="facilities">
                 <motion.h4 
                     {...borderFadeShow}
                     className="font-semibold text-xs text-spacing-5 mt-5 text-purple-600 mb-3">
@@ -276,7 +288,10 @@ export default function About_Us(){
             title = 'Join Our Legacy of Excellence'
             text = 'Become part of a community thats shaping the future through education, innovation, and impact'
             btn_text1="Apply Now"
-            btn_text2="Schedule a Visit"/>
+            btn_text2="Schedule a Visit"
+            btn_text1_link=""
+            btn_text2_link="/contacts#contact-sec"
+            />
         </>
     );
 }

@@ -13,6 +13,7 @@ import { Metadata } from "next";
 import {motion} from 'framer-motion'
 import Image from "next/image";
 import { borderFadeShow, buttonHoverEffects, scrollLeftEffects, scrollRightEffects, scrollupDelayEffects, scrollUpEffect, textFadeIn } from "./animations/framer";
+import Link from "next/link";
 
 const metadata: Metadata = {
   title: "Aurelium | Home",
@@ -53,7 +54,9 @@ export default function Home() {
       and personal growth, preparing them to make meaningful contributions in a global society.
     </p>
     <motion.button {...buttonHoverEffects}  className="mt-4 w-35 py-2.5 border-1 text-sm font-semibold rounded-md cursor-pointer bg-gradient-to-r from-purple-500 to-purple-600 text-white">
-      Learn More
+      <Link href="/about#aboutMore">
+        Learn More
+      </Link>
     </motion.button>
     </div>
     </div>
@@ -93,7 +96,9 @@ export default function Home() {
                   {...buttonHoverEffects}
                   {...scrollRightEffects}
                   className="w-[95%] border-1 my-3 py-2.5 text-sm cursor-pointer bg-gradient-to-r from-purple-500 to-purple-600 text-white font-semibold rounded-md">
-                  Learn More
+                  <Link href="/admissions#programsdetails">
+                    Learn More
+                  </Link>
               </motion.button>
             </div>
           </motion.div>
@@ -103,7 +108,9 @@ export default function Home() {
       <motion.button 
         {...buttonHoverEffects}
         className="mt-10 border-1 border-purple-500 px-6 py-2.5 text-sm flex group items-center rounded-md cursor-pointer font-semibold text-purple-500 hover:bg-gradient-to-r from-purple-500 to-purple-600 hover:text-white transition-all">
-        Explore All Programs <FaArrowRight  className="w-2.5 h-2.5 mt-1 ml-1 group-hover:ml-2 transition-all duration-300"/>
+          <Link href="/academics#programs" className="flex items-center">
+            Explore All Programs <FaArrowRight  className="w-2.5 h-2.5 mt-1 ml-1 group-hover:ml-2 transition-all duration-300"/>
+          </Link>
       </motion.button>
     </div>
     <div className="flex flex-col items-center p-5 lg:p-10">
@@ -189,9 +196,11 @@ export default function Home() {
         <motion.button
           {...buttonHoverEffects} 
           className="mt-10 border-1 border-purple-500 px-6 py-2.5 text-sm flex items-center rounded-md cursor-pointer font-semibold text-purple-500 hover:bg-gradient-to-r from-purple-500 to-purple-600 hover:text-white transition-all group">
-          Explore Campus Life <FaArrowRight  className="w-2.5 h-2.5 mt-0.5 ml-1 group-hover:ml-2 transition-all duration-300"/>
+            <Link href="/gallery#campus_gal" className="flex items-center">
+                Explore Campus Life <FaArrowRight  className="w-2.5 h-2.5 mt-0.5 ml-1 group-hover:ml-2 transition-all duration-300"/>
+            </Link>
         </motion.button>
-        <div className="w-full mt-10 lg:px-5 py-10 flex flex-col items-center">
+        <div className="w-full mt-10 lg:px-5 py-10 flex flex-col items-center" id="school_facilites">
             <motion.h4 {...borderFadeShow} className="font-semibold text-xs text-spacing-5 mt-5 text-purple-600">
               ACCESS FACILITIES
             </motion.h4>
@@ -228,7 +237,9 @@ export default function Home() {
     title = 'Ready to Start Your Journey'
     text = 'Join thousands of students who are already shaping their future with us. Apply today and take the first step towards excellence'
     btn_text1="Apply Now"
-    btn_text2="Contact Admission"/>
+    btn_text2="Contact Admission"
+    btn_text1_link=""
+    btn_text2_link="/contacts#contact-sec"/>
 
     </>
   );

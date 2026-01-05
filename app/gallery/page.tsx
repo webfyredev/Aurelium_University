@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DefaultNavBar from "../components/defaultNav";
 import Header from "../components/header";
 import { Metadata } from "next";
@@ -8,12 +8,23 @@ import { gallery_data, tour_data } from "./gallery";
 import FooterCTA from "../components/footer_Cta";
 import { borderFadeShow, scrollUpEffect } from "../animations/framer";
 import { motion } from 'framer-motion'
+import { usePathname, useSearchParams } from "next/navigation";
 
 const metadata : Metadata = {
     title : "Aurelium | Gallery"
 }
 const gal_cats = ['All', 'Campus', 'Academics', 'Events', 'Sports', 'Campus Life']
 export default function Campus_Gallery(){
+    const pathname = usePathname();
+    const searchParams = useSearchParams();
+    useEffect(() => {
+        const hash = window.location.hash;
+        if(!hash) return;
+        const el = document.querySelector(hash);
+        if(el) el.scrollIntoView({behavior : "smooth"});
+    }, [pathname, searchParams])
+
+
     const [selectedCats, setSelectedCats] = useState("All");
     const [currentPage, setCurrentPage] = useState(1);
     const programsPerPage = 12;
@@ -28,7 +39,7 @@ export default function Campus_Gallery(){
             image = '/header/gals.webp'
             title= 'Campus Gallery'
             text = 'Experience Life at Aurelium University through our vibrant photo collection'/>
-            <div className="w-full md:p-5 lg:p-10 flex flex-col items-center">
+            <div className="w-full md:p-5 lg:p-10 flex flex-col items-center " id="campus_gal">
                 <div className="w-[75%] p-3 hidden md:flex items-center justify-center gap-3 mb-3">
                     {gal_cats.map((cats, index) => (
                         <button key={index}
@@ -78,7 +89,7 @@ export default function Campus_Gallery(){
                     </div>
                 )}
             </div>
-            <div className="p-5 lg:p-10 bg-gradient-to-r from-slate-50 to-purple-50 flex flex-col items-center mt-10 md:mt-5 lg:mt-0">
+            <div className="p-5 lg:p-10 bg-gradient-to-r from-slate-50 to-purple-50 flex flex-col items-center mt-10 md:mt-5 lg:mt-0" id="tour">
                 <motion.h4 
                     {...borderFadeShow}
                     className="font-semibold text-xs text-spacing-5 text-purple-600 mb-3">
@@ -110,6 +121,8 @@ export default function Campus_Gallery(){
                 text="Explore the moments, achievements, and everyday experiences that define our vibrant academic community."
                 btn_text1="Apply Now"
                 btn_text2="Visit Our Campus"
+                btn_text1_link="/admissions#apply_process"
+                btn_text2_link="/gallery#tour"
             />
         </>
     );

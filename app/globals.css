@@ -7,6 +7,9 @@
 body{
   overflow-x: hidden;
 }
+html {
+  scroll-behavior: smooth;
+}
 #swiperSec .swiper-button-next, #swiperSec .swiper-button-prev {
   display: none;
 } 

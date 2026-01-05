@@ -36,7 +36,7 @@ export default function News_Events(){
                         Events
                     </button>
                 </div>
-                <div className="flex flex-wrap gap-2 justify-center mb-6">
+                <div className="hidden md:flex flex-wrap gap-2 justify-center mb-6">
                     {categories.map((cat) => (
                         <button key={cat}
                         onClick={() => setActiveCategory(cat)}
@@ -73,7 +73,7 @@ export default function News_Events(){
                         <motion.div {...cardFadeShow} key={index} className="flex flex-col items-center p-5 rounded-xl shadow-sm hover:shadow-lg bg-white transition duration-300 group hover:scale-105">
                             <data.icon  className="w-12 h-12 p-3.5 rounded-xl bg-gradient-to-r from-purple-500 to-purple-600 text-white"/>
                             <p className="text-xs font-semibold text-purple-500 mt-3">{data.date}</p>
-                            <h3 className="font-semibold text-purple-950 mt-2 group-hover:text-purple-500">{data.title}</h3>
+                            <h3 className="font-semibold text-purple-950 mt-2 group-hover:text-purple-500 transition-all duration-300">{data.title}</h3>
                             <p className="text-xs text-center mt-3">{data.text}</p>
                         </motion.div>
                     ))}

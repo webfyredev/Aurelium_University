@@ -1,5 +1,6 @@
 import {motion} from 'framer-motion'
 import { buttonHoverEffects, scrollRightEffects, scrollUpEffect } from '../animations/framer';
+import Link from 'next/link';
 export default function ResearchInnovation() {
   return (
     <section className="py-5 lg:py-10 bg-white">
@@ -52,7 +53,9 @@ export default function ResearchInnovation() {
           <motion.button 
             {...buttonHoverEffects}
             className="mt-8 px-6 py-2.5 bg-gradient-to-r from-purple-500 to-purple-600 text-white text-sm font-semibold rounded-lg shadow hover:bg-blue-700 transition cursor-pointer">
-            Explore Research
+              <Link href ="/research#research_details">
+                  Explore Research
+              </Link>
           </motion.button>
         </div>
 

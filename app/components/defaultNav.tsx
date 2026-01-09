@@ -19,11 +19,7 @@ export default function DefaultNavBar(){
                         </Link>
                     </div>
                     <ul className={`hidden lg:flex space-x-1.5 items-center text-purple-400`}>
-                        <li className="px-4 py-2 text-[13px] font-semibold cursor-pointer transition-all duration-300 hover:bg-purple-100 rounded-sm">
-                            <Link href="/">
-                                Home
-                            </Link>
-                        </li>
+                        
                         <li className="px-4 py-2 text-[13px] font-semibold cursor-pointer transition-all duration-300 hover:bg-purple-100 rounded-sm">
                             <Link href="/about">
                                 About

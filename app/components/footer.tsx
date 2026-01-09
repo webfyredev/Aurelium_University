@@ -13,7 +13,9 @@ export default function Footer(){
                         <div className="flex items-center">
                             <img src="/nav_logo.png" className="w-10 h-10 rounded-md mt-[-1.5] ml-[-12px] object-cover" />
                             <h3 className="text-xl font-bold bg-gradient-to-r from-purple-500 to-purple-600 text-transparent bg-clip-text ml-[-6px]">
-                                Aurelium University
+                                <Link href="/">
+                                    Aurelium University
+                                </Link>
                             </h3>
                         </div>
                         <p className="text-xs text-gray-600">

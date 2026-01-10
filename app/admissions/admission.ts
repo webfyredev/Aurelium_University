@@ -6,7 +6,8 @@ import { GiGraduateCap } from "react-icons/gi";
 interface admissions {id:number, icon : React.ElementType, title: string, text:string}
 interface required { id :number, title : string, icon : React.ElementType, qualfs :string[]}
 interface award {title : string, text:string, percent:string}
-export const apply = [
+interface apply{id:number, icon:React.ElementType, title:string, text:string}
+export const apply:apply[] = [
     {
         id : 1,
         icon : FaListUl,
@@ -33,7 +34,8 @@ export const apply = [
     },
 ];
 
-export const requirements = [
+interface requirements{id:number, title : string, icon : React.ElementType, qualfs:string[]}
+export const requirements:requirements[] = [
     {
         id : 1,
         title : 'Undergraduate',
@@ -78,7 +80,8 @@ export const scholarsips:award[] = [
 ]
 export const aid:string[] = ['Over $2.5 million in scholarships awarded anually', 'Merit based and need-based financial assistance', 'Flexible payment plans available']
 
-export const faqs = [
+interface faq{question : string, answer:string}
+export const faqs:faq[] = [
     {
         question : 'What are the admission requirements for undergraduates programs',
         answer: 'Undergraduates admission requires completion of high school with a minimum of 3.0, standardized test scores (SAT/ACT), letters of recommendation, personal statement, and a proof of English proficiency for international students (TOEFL/IELTS)',

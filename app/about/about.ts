@@ -154,7 +154,7 @@ export const campus_infra: campus[] = [
     },
 
 ]
-export const milestone: history[] = [
+export const milestone:history[] = [
     {
         id : 1,
         year : 2000,
@@ -189,7 +189,8 @@ export const milestone: history[] = [
 
 ]
 
-export const alumni_stories = [
+interface alumni{image : string, name : string, achievement:string, story:string}
+export const alumni_stories:alumni[] = [
     {
       image: "/about/alumni1.jpg",
       name: "Dr. Jane Okoro",

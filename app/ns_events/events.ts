@@ -88,7 +88,8 @@ export const social_media:social_media[] = [
     }
 ]
 
-export const news_data = [
+interface news{title:string, text:string, author:string, date: string, image : string, category:string}
+export const news_data:news[] = [
     {
     title: "University Ranks Among Top 100 Global Institutions in Latest QS",
     text: "Our institution has achieved a remarkable milestone, securing a position in the top 100 universities worldwide, reflecting our commitment to academic excellence.",
@@ -162,7 +163,8 @@ export const news_data = [
   }
 ];
 
-export const event_data = [
+interface events {title:string, text:string, date:string, day:string, month:string, time:string, venue:string, image:string, category:string}
+export const event_data:events[] = [
   {
     title: "2025 Undergraduate Admission Orientation Program",
     text: "Prospective students are invited to attend the admission orientation to learn about requirements, deadlines, and available programs.",

@@ -5,60 +5,18 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useRef, useEffect } from 'react';
 import { hero } from '../pageData';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import CountUp from "react-countup";
+import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-gsap.registerPlugin(ScrollTrigger)
+import { buttonHoverEffects, scrollRightEffects, scrollupDelayEffects, scrollUpEffect } from '../animations/framer';
 export default function Hero(){
     const {ref : sectionOneRef, inView:sectionOneInView} = useInView({
     triggerOnce : false,
     threshold : 0.5,
     });
-    const [activeSlide, setActiveSlide] = useState(0);
-
-    const titleRefs = useRef<Array<HTMLHeadingElement | null>> ([]);
-    const descRefs = useRef<Array<HTMLParagraphElement | null>> ([]);
-    const ctaGroupRefs = useRef<Array<HTMLDivElement | null>> ([]);
-
-    useEffect(() => {
-        titleRefs.current.forEach(el => el && gsap.set(el, {y: 30, opacity : 0}));
-        descRefs.current.forEach(el => el && gsap.set(el, {y: 20, opacity : 0}));
-        ctaGroupRefs.current.forEach(el => el && gsap.set(el, {y: 20, opacity : 0}));
-        const tl = gsap.timeline();
-        const titleEl = titleRefs.current[activeSlide];
-        const descEl = descRefs.current[activeSlide];
-        const ctaEl = ctaGroupRefs.current[activeSlide];
-        if(titleEl)
-            tl.to(titleEl, {
-                y : 0, 
-                opacity : 1, 
-                duration : 0.6, 
-                ease : "power3.out"
-            });
-        if(descEl)
-            tl.to(
-                descEl, {
-                    y : 0,
-                    opacity : 1, 
-                    duration : 0.45,
-                },
-                "-=0.3"
-            );
-        if(ctaEl)    
-            tl.to(ctaEl, {
-                y : 0,
-                opacity : 1,
-                duration : 0.4
-            },
-            "-=0.25"
-            );
-        return () => {
-            tl.kill();
-        };
-    }, [activeSlide]);
 
     const countKey = sectionOneInView ? "start" : "idle";
+    const [activeSlide, setActiveSlide] = useState(0);
     const slides = [
         {
         title: "Empowering Minds Through Quality Education",
@@ -119,7 +77,7 @@ export default function Hero(){
                 navigation
                 pagination = {{clickable : true}}
                 loop
-                onSlideChange={(swiper => setActiveSlide(swiper.realIndex))}
+                onSlideChange={(swiper) => setActiveSlide(swiper.realIndex)}
                 className='w-full h-full'
             >
                 {slides.map((slide, index) => (
@@ -134,47 +92,64 @@ export default function Hero(){
                              />                            
                             <div className='absolute inset-0 bg-gradient-to-b from-purple-900/50 to-purple-800/90'></div>
                             <div className='relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-6'>
-                                <h1
-                                    ref={el => (titleRefs.current[index] = el)}
+                                <motion.h1
+                                key={`title-${activeSlide}`}
+                                    {...scrollUpEffect}
                                     className='text-3xl md:text-4xl lg:text-5xl font-bold mt-25'>
                                     {slide.title}
-                                </h1>
-                                <p
-                                    ref={el => (descRefs.current[index] = el)}
+                                </motion.h1>
+                                <motion.p
+                                    key={`desc-${activeSlide}`}
+                                    {...scrollupDelayEffects}
                                     className='mt-4 max-w-2xl'>
                                     {slide.description}
-                                </p>
-                                <div 
-                                    ref={el => (ctaGroupRefs.current[index] = el)}
+                                </motion.p>
+                                <motion.div
+                                    key={`buts-${activeSlide}`}
+                                    {...scrollRightEffects} 
                                     className='mt-8 flex space-x-5 items-center'>
-                                        <button
+                                        <motion.button
+                                            {...buttonHoverEffects}
                                             className='px-8 py-3 shadow-md hover:shadow-xl text-sm font-semibold rounded-sm cursor-pointer bg-purple-600'>
                                             <Link href={slide.cta1_link}>
                                                 {slide.cta1}
                                             </Link>
-                                        </button>
-                                        <button 
+                                        </motion.button>
+                                        <motion.button
+                                            {...buttonHoverEffects} 
                                             className='px-8 py-3 shadow-md hover:shadow-xl text-sm font-semibold rounded-sm cursor-pointer bg-white text-purple-500'>
                                             <Link href={slide.cta2_link}>
                                                 {slide.cta2}
                                             </Link>
-                                        </button>
-                                </div>
-                                <div 
-                                    ref = {sectionOneRef}
-                                    className='hidden md:grid relative top-15 w-[85%] lg:w-[70%] mt-5 p-3 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
-                                    {hero.map((hero, index) => (
-                                        <div key={index} className='border-1 p-3 rounded-md flex flex-col items-center space-y-1.5 bg-white/10 border border-white/10 backdrop-blur-md shadow-lg transition duration-300 hover:bg-white/20 hover:shadow-xl cursor-pointer'>
-                                            <hero.icon  className="w-6 h-6 "/>
-                                            <h3 className='font-bold text-2xl'>
-                                                {sectionOneInView ? <CountUp key={countKey + "-" + index} end={hero.count} duration={2.5} /> : 0}{hero.sign}
-                                            </h3>
-                                            <p className='text-purple-100 font-semibold text-sm'>
-                                                {hero.title}
-                                            </p>
-                                        </div>
-                                    ))}
-                                </div>
+                                        </motion.button>
+                                </motion.div>
+                                {activeSlide === 0 &&(
+                                    <motion.div
+                                        {...scrollupDelayEffects}
+                                        ref = {sectionOneRef}
+                                        className='hidden lg:grid relative top-15 w-[85%] lg:w-[70%] mt-5 p-3 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
+                                        {hero.map((hero, index) => (
+                                            <div key={index} className='border-1 p-3 rounded-md flex flex-col items-center space-y-1.5 bg-white/10 border border-white/10 backdrop-blur-md shadow-lg transition duration-300 hover:bg-white/20 hover:shadow-xl cursor-pointer hover:scale-105'>
+                                                <hero.icon  className="w-6 h-6 "/>
+                                                {/* <h3 className='font-bold text-2xl'>
+                                                    {sectionOneInView ? <CountUp key={`count-${activeSlide}-${index}`} end={hero.count} duration={2.5} /> : 0}{hero.sign}
+                                                </h3> */}
+                                                <h3 className="font-bold text-2xl">
+                                                    <CountUp
+                                                        key={`count-${activeSlide}-${index}`}
+                                                        end={hero.count}
+                                                        duration={2.5}
+                                                    />
+                                                    {hero.sign}
+                                                </h3>
+                                                <p className='text-purple-100 font-semibold text-sm'>
+                                                    {hero.title}
+                                                </p>
+                                            </div>
+                                        ))}
+                                    </motion.div>
+                                )}
+                                
                             </div>
                         </div>
                     </SwiperSlide>

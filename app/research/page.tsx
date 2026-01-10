@@ -7,7 +7,7 @@ import ResearchSlider from "../components/research_slider";
 import { research_card, research_facilities, research_funding, research_impact, research_partners, research_stories } from "./research";
 import { Metadata } from "next";
 import Latest_Research_News from "../components/research_news";
-import { borderFadeShow, buttonHoverEffects, cardFadeEffects, scrollRightEffects, scrollupDelayEffects, scrollUpEffect } from "../animations/framer";
+import { borderFadeShow, buttonHoverEffects, scrollRightEffects, scrollupDelayEffects, scrollUpEffect } from "../animations/framer";
 import { motion } from 'framer-motion'
 import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect } from "react";

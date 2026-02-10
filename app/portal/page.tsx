@@ -1,13 +1,10 @@
-import DefaultNavBar from "../components/defaultNav";
-import Header from "../components/header";
+import { Metadata } from "next";
+import Portal_Registration from "./portalClients";
 
-export default function Portal_Registration(){
-    return(
-        <>
-            <DefaultNavBar />
-            <div className="w-full p-10 border-1 mt-25">
+export const metadata : Metadata = {
+    title : "Aurelium | Portal"
+};
 
-            </div>
-        </>
-    );
+export default function Portal_Page(){
+    return <Portal_Registration />
 }

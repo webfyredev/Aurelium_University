@@ -191,7 +191,7 @@ export default function Footer(){
                 <div className="w-full mt-2 p-3 flex items-center justify-between">
                     <p className="text-[9px] md:text-xs font-semibold text-purple-950">&copy; {dates} <a href="mailto:aureliumuniversity@gmail.com" className="hover:text-purple-500">Aurelium University</a>. All right reserved</p>
                     <p className="text-[9px] md:text-xs text-gray-500">
-                        <a href="mailto:oyinbook@gmail.com" className="hover:text-purple-500">Developed by Oyinlade</a>
+                        <a href="mailto:oyinbook@gmail.com" className="hover:text-purple-500 font-semibold">Developed by Oyinlade</a>
                     </p>
                 </div>
             </footer>

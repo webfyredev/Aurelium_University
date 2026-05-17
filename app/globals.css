@@ -5,7 +5,7 @@
 @import "swiper/css/pagination";
 
 body{
-  overflow-x: hidden;
+  overflow-x: hidden !important;
 }
 html {
   scroll-behavior: smooth;
